@@ -1,159 +1,637 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Smart Traders World — Register & Payment</title>
-  <link rel="stylesheet" href="st.css">
-  <script src="https://cdn.jsdelivr.net/npm/tesseract.js@v4.1.3/dist/tesseract.min.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>World Investment Global</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(to bottom right, #000000, #07122b, #0a1f44);
+      color: white;
+      min-height: 100vh;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .logo h1 {
+      color: gold;
+      font-size: 28px;
+    }
+
+    .logo p {
+      color: #cccccc;
+      margin-top: 5px;
+    }
+
+    .support-btn {
+      background: gold;
+      color: black;
+      padding: 12px 22px;
+      border: none;
+      border-radius: 12px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 80px 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .hero h2 {
+      font-size: 50px;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      color: #d0d0d0;
+      line-height: 1.7;
+      font-size: 18px;
+    }
+
+    .hero-buttons {
+      margin-top: 40px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 15px 30px;
+      border-radius: 15px;
+      font-weight: bold;
+      cursor: pointer;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .btn-primary {
+      background: gold;
+      color: black;
+    }
+
+    .btn-secondary {
+      border: 2px solid gold;
+      color: gold;
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 40px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 25px;
+      padding: 30px;
+      backdrop-filter: blur(10px);
+    }
+
+    .card h3 {
+      color: gold;
+      margin-bottom: 15px;
+    }
+
+    .card p {
+      color: #d0d0d0;
+      line-height: 1.6;
+    }
+
+    .dashboard {
+      max-width: 1100px;
+      margin: 60px auto;
+      padding: 40px;
+      background: rgba(255,255,255,0.05);
+      border-radius: 30px;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .dashboard-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+
+    .dashboard-header h2 {
+      color: gold;
+      font-size: 35px;
+    }
+
+    .status {
+      background: gold;
+      color: black;
+      padding: 12px 20px;
+      border-radius: 12px;
+      font-weight: bold;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+
+    .stat-box {
+      background: rgba(0,0,0,0.3);
+      border-radius: 20px;
+      padding: 25px;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .stat-box p {
+      color: #bbbbbb;
+    }
+
+    .stat-box h3 {
+      margin-top: 10px;
+      color: gold;
+      font-size: 32px;
+    }
+
+    .investment-box {
+      background: linear-gradient(to right, gold, #ffd54f);
+      color: black;
+      padding: 40px;
+      border-radius: 30px;
+      text-align: center;
+    }
+
+    .investment-box h3 {
+      font-size: 32px;
+      margin-bottom: 15px;
+    }
+
+    .investment-box p {
+      font-size: 18px;
+      margin-bottom: 30px;
+    }
+
+    .investment-box a {
+      display: inline-block;
+      background: black;
+      color: white;
+      padding: 18px 35px;
+      border-radius: 18px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .investment-box a:hover {
+      transform: scale(1.05);
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      color: #bdbdbd;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      margin-top: 60px;
+    }
+
+    #loader {
+      position: fixed;
+      width: 100%;
+      height: 100vh;
+      background: black;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+
+    .spinner {
+      width: 80px;
+      height: 80px;
+      border: 6px solid rgba(255,255,255,0.2);
+      border-top: 6px solid gold;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin-bottom: 20px;
+    }
+
+    @keyframes spin {
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .auth-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .auth-box {
+      width: 100%;
+      max-width: 450px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 30px;
+      padding: 40px;
+      backdrop-filter: blur(15px);
+      animation: fadeIn 1s ease;
+    }
+
+    .auth-box h1 {
+      color: gold;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .auth-box p {
+      text-align: center;
+      color: #cccccc;
+      margin-bottom: 30px;
+    }
+
+    .tabs {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 30px;
+    }
+
+    .tabs button {
+      flex: 1;
+      padding: 15px;
+      border: none;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.05);
+      color: white;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .active-tab {
+      background: gold !important;
+      color: black !important;
+    }
+
+    .auth-box input {
+      width: 100%;
+      padding: 15px;
+      margin-bottom: 20px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.05);
+      color: white;
+      font-size: 16px;
+    }
+
+    .auth-btn {
+      width: 100%;
+      padding: 15px;
+      background: gold;
+      color: black;
+      border: none;
+      border-radius: 12px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .auth-btn:hover {
+      transform: scale(1.03);
+    }
+
+    @media(max-width:768px) {
+      .hero h2 {
+        font-size: 36px;
+      }
+
+      header {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+      }
+    }
+  </style>
 </head>
 <body>
-  <header class="topbar">
-    <div class="brand">
-      <div class="logo">ST</div>
-      <div class="brand-text">Smart Traders World</div>
-    </div>
-    <nav>
-      <button id="adminBtn" class="link-btn">Admin</button>
-    </nav>
-  </header>
 
-  <main class="container">
-    <section class="hero card">
-      <h1>Welcome to <span>Smart Traders World</span></h1>
-      <p class="lead">
-        Learn the basics: <strong>What is Crypto</strong>, 
-        <strong>What is Forex</strong>, 
-        <strong>How to Buy & Sell</strong>.<br>
-        To access beginner lessons you must complete the one-time registration payment of 
-        <strong>$10 (₦15,000)</strong>.
-      </p>
-    </section>
-
-    <section class="grid">
-      <div class="card">
-        <div class="tabs">
-          <button class="tab active" data-tab="register">Register & Pay</button>
-          <button class="tab" data-tab="login">Login</button>
-        </div>
-
-        <div id="register" class="tabcontent active">
-          <h2>Register — Pay & Upload Proof</h2>
-
-          <div class="payment-info">
-            <div class="pay-box">
-              <h4>Naira (Opay)</h4>
-              <p><b>Account Name:</b> Abdullahi Muhammad</p>
-              <p><b>Account Number:</b> 8122294546</p>
-              <p><b>Amount:</b> ₦15,000</p>
-            </div>
-
-            <div class="pay-box">
-              <h4>USDT (TRON)</h4>
-              <p class="mono">TYiqwUuwwU6Me8ezkoLJZkuKNkdefHQYVa</p>
-              <p><b>Amount:</b> $10</p>
-            </div>
-          </div>
-
-          <label>Payment Proof (screenshot)</label>
-          <input id="proofFile" type="file" accept="image/*" />
-
-          <hr/>
-
-          <label>Full Name</label>
-          <input id="regName" type="text" placeholder="Your full name" />
-
-          <label>Email</label>
-          <input id="regEmail" type="email" placeholder="you@example.com" />
-
-          <label>Password</label>
-          <input id="regPassword" type="password" placeholder="Choose a password" />
-
-          <div style="margin-top:8px;">
-            <input type="checkbox" id="humanCheckReg">
-            <label for="humanCheckReg">Verify you are human</label>
-            <div id="humanMsgReg" style="font-size:13px; color:var(--muted); margin-top:4px;"></div>
-          </div>
-
-          <div class="note">
-            ⚠️ You must pay $10 (or ₦15,000) and upload proof to register. 
-            Admin approves manually.
-          </div>
-
-          <button class="primary" id="submitRegister">
-            Submit Payment & Register
-          </button>
-          <div id="regMessage" class="message"></div>
-        </div>
-
-        <div id="login" class="tabcontent">
-          <h2>Login</h2>
-          <input id="loginEmail" type="email" placeholder="Email address" />
-          <input id="loginPassword" type="password" placeholder="Password" />
-
-          <div style="margin-top:8px;">
-            <input type="checkbox" id="humanCheckLogin">
-            <label for="humanCheckLogin">Verify you are human</label>
-            <div id="humanMsgLogin" style="font-size:13px; color:var(--muted); margin-top:4px;"></div>
-          </div>
-
-          <button class="primary" id="btnLogin">Login</button>
-          <div id="loginMsg" class="message"></div>
-        </div>
-      </div>
-
-      <aside class="card">
-        <h3>How it works</h3>
-        <ol>
-          <li>Pay $10 / ₦15,000 and upload proof.</li>
-          <li>Account is created with status <em>Pending</em>.</li>
-          <li>Admin logs in and approves the payment.</li>
-          <li>When approved, user can login and access lessons.</li>
-        </ol>
-
-        <div class="smallcard">
-          <h4>Conversion</h4>
-          <p>$1 = ₦1,500 — $10 = ₦15,000</p>
-        </div>
-
-        <div class="smallcard">
-          <h4>Important</h4>
-          <p>Admin email & password are required to view and approve registrations.</p>
-        </div>
-      </aside>
-    </section>
-
-    <section id="adminPanel" class="card" style="display:none; margin-top:18px;">
-      <div class="admin-head">
-        <h2>Admin Dashboard</h2>
-        <div>
-          <button class="link-btn" id="adminLogout">Logout</button>
-        </div>
-      </div>
-
-      <h3>Pending Registrations</h3>
-      <div id="pendingList" class="list"></div>
-
-      <h3 style="margin-top:12px">Approved Members</h3>
-      <div id="approvedList" class="list"></div>
-    </section>
-  </main>
-
-  <footer class="footer">
-    Smart Traders World — Registration Side
-  </footer>
-
-  <div id="whatsapp-help-container">
-    <a 
-      href="https://wa.me/message/P5FTI7WFD7GFB1" 
-      target="_blank" 
-      id="whatsapp-help-link"
-      aria-label="Contact support via WhatsApp"
-    >
-      Help
-    </a>
+  <!-- Loading Animation -->
+  <div id="loader">
+    <div class="spinner"></div>
+    <h2>WORLD INVESTMENT GLOBAL</h2>
   </div>
 
-  <script src="st.js"></script>
+  <!-- Public Landing Dashboard -->
+  <div id="publicDashboard">
+
+  <header>
+    <div class="logo">
+      <h1>WORLD INVESTMENT GLOBAL</h1>
+      <p>Capital Growth & Investment Platform</p>
+    </div>
+
+    <button class="support-btn" onclick="scrollToAuth()">Get Started</button>
+  </header>
+
+  <section class="hero">
+    <h2>Professional Investment Platform</h2>
+
+    <p>
+      World Investment Global is focused on structured investment participation through long-term business operations and performance-based growth opportunities.
+    </p>
+
+    <div class="hero-buttons">
+      <a href="#authSection" class="btn btn-primary">Create Account</a>
+      <a href="#overview" class="btn btn-secondary">Explore Platform</a>
+    </div>
+  </section>
+
+  <section class="features" id="overview">
+    <div class="card">
+      <h3>14-Day Investment Cycle</h3>
+      <p>
+        Structured investment duration designed for controlled participation and organized withdrawal scheduling.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>10%–25% Estimated Returns</h3>
+      <p>
+        Investment returns are based on real business performance and operational activity.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Referral Growth System</h3>
+      <p>
+        Earn 8% referral bonus through qualified participation and reinvestment structure.
+      </p>
+    </div>
+  </section>
+
+  <section class="dashboard" style="margin-top:40px;">
+    <div class="dashboard-header">
+      <div>
+        <h2>Platform Overview</h2>
+        <p style="color:#cccccc; margin-top:10px;">
+          Simple and structured investment participation dashboard
+        </p>
+      </div>
+
+      <div class="status">Live Platform</div>
+    </div>
+
+    <div class="stats">
+      <div class="stat-box">
+        <p>Minimum Package</p>
+        <h3>₦20K</h3>
+      </div>
+
+      <div class="stat-box">
+        <p>Investment Duration</p>
+        <h3>14 Days</h3>
+      </div>
+
+      <div class="stat-box">
+        <p>Referral Bonus</p>
+        <h3>8%</h3>
+      </div>
+    </div>
+
+    <div class="investment-box">
+      <h3>Join World Investment Global</h3>
+
+      <p>
+        Create your investment account to access the dashboard, onboarding system, and investment participation form.
+      </p>
+
+      <a href="#authSection">
+        Access Dashboard
+      </a>
+    </div>
+  </section>
+
+  </div>
+
+  <!-- Auth Section -->
+  <div id="authSection"></div>
+  <div class="auth-container" id="authContainer">
+    <div class="auth-box">
+      <h1>WORLD INVESTMENT GLOBAL</h1>
+      <p>Secure Investment Dashboard Access</p>
+
+      <div class="tabs">
+        <button onclick="showLogin()" id="loginTab" class="active-tab">Login</button>
+        <button onclick="showRegister()" id="registerTab">Register</button>
+      </div>
+
+      <!-- Login Form -->
+      <div id="loginForm">
+        <input type="text" id="loginUsername" placeholder="Username" />
+        <input type="password" id="loginPassword" placeholder="Password" />
+        <button onclick="loginUser()" class="auth-btn">Login Dashboard</button>
+      </div>
+
+      <!-- Register Form -->
+      <div id="registerForm" style="display:none;">
+        <input type="text" id="registerUsername" placeholder="Create Username" />
+        <input type="password" id="registerPassword" placeholder="Create Password" />
+        <button onclick="registerUser()" class="auth-btn">Create Account</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Website -->
+  <div id="mainWebsite" style="display:none; animation: fadeIn 1s ease;">
+
+  <header>
+    <div class="logo">
+      <h1>WORLD INVESTMENT GLOBAL</h1>
+      <p>Capital Growth & Investment Platform</p>
+    </div>
+
+    <button class="support-btn">Contact Support</button>
+  </header>
+
+  <section class="hero">
+    <h2>Professional Investment Platform</h2>
+
+    <p>
+      Structured investment participation based on long-term business operations and performance-focused growth.
+    </p>
+  </section>
+
+  <section class="features">
+    <div class="card">
+      <h3>Investment Cycle</h3>
+      <p>
+        Structured 14-day investment participation cycle with business-performance-based returns.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Performance Returns</h3>
+      <p>
+        Estimated investment performance ranges between 10% and 25% depending on business operations.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Referral Structure</h3>
+      <p>
+        Earn 8% referral bonus through qualified investment participation and reinvestment structure.
+      </p>
+    </div>
+  </section>
+
+  <section class="dashboard" id="dashboard">
+    <div class="dashboard-header">
+      <div>
+        <h2>User Dashboard</h2>
+        <p style="color:#cccccc; margin-top:10px;">
+          Simple investment management interface
+        </p>
+      </div>
+
+      <div class="status">Active User</div>
+    </div>
+
+    <div class="stats">
+      <div class="stat-box">
+        <p>Account Balance</p>
+        <h3>₦0.00</h3>
+      </div>
+
+      <div class="stat-box">
+        <p>Active Package</p>
+        <h3>No Package</h3>
+      </div>
+
+      <div class="stat-box">
+        <p>Referral Bonus</p>
+        <h3>₦0.00</h3>
+      </div>
+    </div>
+
+    <div class="investment-box">
+      <h3>Start Investment Participation</h3>
+
+      <p>
+        Complete your investment onboarding and payment confirmation through our official participation form.
+      </p>
+
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSdgf5kQIpVJqSvYF10Tce3juLWfVIlkZaFG8gV6xtKtdrHthQ/viewform?usp=header" target="_blank">
+        Open Investment Form
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 World Investment Global. All rights reserved.</p>
+    <p style="margin-top:10px;">Official Support: +234 XXX XXX XXXX</p>
+  </footer>
+
+  </div>
+
+  <script>
+
+    // Loading Animation
+    window.onload = function() {
+      setTimeout(() => {
+        document.getElementById('loader').style.display = 'none';
+      }, 2000);
+    }
+
+    function scrollToAuth() {
+      document.getElementById('authSection').scrollIntoView({
+        behavior: 'smooth'
+      });
+    }
+
+    function showLogin() {
+      document.getElementById('loginForm').style.display = 'block';
+      document.getElementById('registerForm').style.display = 'none';
+      document.getElementById('loginTab').classList.add('active-tab');
+      document.getElementById('registerTab').classList.remove('active-tab');
+    }
+
+    function showRegister() {
+      document.getElementById('loginForm').style.display = 'none';
+      document.getElementById('registerForm').style.display = 'block';
+      document.getElementById('registerTab').classList.add('active-tab');
+      document.getElementById('loginTab').classList.remove('active-tab');
+    }
+
+    function registerUser() {
+      let username = document.getElementById('registerUsername').value;
+      let password = document.getElementById('registerPassword').value;
+
+      if(username === '' || password === '') {
+        alert('Please fill all fields');
+        return;
+      }
+
+      localStorage.setItem('wig_username', username);
+      localStorage.setItem('wig_password', password);
+
+      alert('Account Created Successfully');
+      showLogin();
+    }
+
+    function loginUser() {
+      let username = document.getElementById('loginUsername').value;
+      let password = document.getElementById('loginPassword').value;
+
+      let savedUser = localStorage.getItem('wig_username');
+      let savedPass = localStorage.getItem('wig_password');
+
+      if(username === savedUser && password === savedPass) {
+        document.getElementById('authContainer').style.display = 'none';
+        document.getElementById('mainWebsite').style.display = 'block';
+      } else {
+        alert('Invalid Login Information');
+      }
+    }
+
+  </script>
+
 </body>
 </html>

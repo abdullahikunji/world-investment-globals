@@ -1101,7 +1101,8 @@ footer{
 
 </style>
 
-<base target="_blank">
+<!-- REMOVED <base target="_blank"> to prevent unwanted new tabs -->
+
 </head>
 <body>
 
@@ -2211,9 +2212,10 @@ function confirmDeposit(){
     
     closeDepositModal();
     
-    window.open(DEPOSIT_FORM_URL, "_blank");
+    // FIXED: Redirect in the same tab to the Google Form
+    window.location.href = DEPOSIT_FORM_URL;
     
-    alert("Please complete the Google Form to confirm your deposit. You will be redirected back here after completion.");
+    alert("Please complete the Google Form to confirm your deposit. After completing, come back to this page.");
     
     startSecretTimerCheck();
 }

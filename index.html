@@ -76,18 +76,40 @@ header{
     font-size:14px;
 }
 
-.logout-btn{
+.header-buttons{
+    display:flex;
+    gap:10px;
+}
+
+.header-buttons button{
     padding:12px 20px;
     border:none;
     border-radius:10px;
-    background:#dc2626;
-    color:white;
     font-weight:bold;
     cursor:pointer;
 }
 
+.get-started-btn{
+    background:gold;
+    color:black;
+}
+
+.logout-btn{
+    background:#dc2626;
+    color:white;
+}
+
 .logout-btn:hover{
     background:#b91c1c;
+}
+
+.switch-account-btn{
+    background:#3b82f6;
+    color:white;
+}
+
+.switch-account-btn:hover{
+    background:#2563eb;
 }
 
 /* Hero */
@@ -904,115 +926,124 @@ header{
     color:#dc2626;
 }
 
-/* ====== AUTH SECTION ====== */
+/* ====== ACCOUNT SWITCHER MODAL ====== */
 
-.auth-section{
-    width:90%;
-    max-width:500px;
-    margin:60px auto;
-    background:#111827;
-    border-radius:25px;
-    padding:40px;
-    border:1px solid rgba(255,215,0,0.15);
-    box-shadow:0 0 40px rgba(255,215,0,0.05);
+.account-switcher-modal .modal-box{
+    max-width:400px;
 }
 
-.auth-section .auth-icon{
-    text-align:center;
-    font-size:60px;
-    margin-bottom:10px;
+.account-list{
+    max-height:300px;
+    overflow-y:auto;
+    margin:20px 0;
 }
 
-.auth-section h2{
-    text-align:center;
-    color:gold;
-    font-size:28px;
-    margin-bottom:5px;
-}
-
-.auth-section .auth-subtitle{
-    text-align:center;
-    color:#888;
-    font-size:14px;
-    margin-bottom:30px;
-}
-
-.auth-section input{
-    width:100%;
-    padding:15px 20px;
-    margin-bottom:20px;
-    border:none;
-    border-radius:12px;
-    background:#1e293b;
-    color:white;
-    font-size:16px;
-    outline:none;
-    transition:0.3s;
-    border:1px solid transparent;
-}
-
-.auth-section input:focus{
-    border-color:gold;
-    box-shadow:0 0 10px rgba(255,215,0,0.2);
-}
-
-.auth-section input::placeholder{
-    color:#666;
-}
-
-.auth-section button{
-    width:100%;
+.account-item{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
     padding:15px;
-    border:none;
-    border-radius:12px;
-    background:gold;
-    color:black;
-    font-size:16px;
-    font-weight:bold;
+    background:#1e293b;
+    border-radius:10px;
+    margin-bottom:10px;
     cursor:pointer;
     transition:0.3s;
-    margin-top:5px;
 }
 
-.auth-section button:hover{
+.account-item:hover{
+    background:#334155;
+    transform:translateX(5px);
+}
+
+.account-item .account-name{
+    color:gold;
+    font-weight:bold;
+}
+
+.account-item .account-switch-btn{
+    padding:8px 15px;
+    background:gold;
+    border:none;
+    border-radius:8px;
+    color:black;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.account-item .account-switch-btn:hover{
     background:#ffd700;
-    transform:translateY(-2px);
-    box-shadow:0 5px 20px rgba(255,215,0,0.3);
 }
 
-.auth-divider{
+/* ====== FLOATING TELEGRAM SUPPORT BUTTON ====== */
+
+.telegram-support{
+    position:fixed;
+    bottom:30px;
+    right:30px;
+    z-index:9999;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.telegram-support a{
     display:flex;
     align-items:center;
-    margin:25px 0;
-    color:#555;
-    font-size:13px;
-}
-
-.auth-divider::before,
-.auth-divider::after{
-    content:"";
-    flex:1;
-    height:1px;
-    background:#333;
-    margin:0 15px;
-}
-
-.auth-toggle{
-    text-align:center;
-    margin-top:20px;
-    color:#888;
-    font-size:14px;
-}
-
-.auth-toggle a{
-    color:gold;
+    justify-content:center;
+    width:65px;
+    height:65px;
+    background:#0088cc;
+    border-radius:50%;
+    box-shadow:0 5px 20px rgba(0,136,204,0.4);
+    transition:0.3s;
     text-decoration:none;
-    font-weight:bold;
-    cursor:pointer;
 }
 
-.auth-toggle a:hover{
-    text-decoration:underline;
+.telegram-support a:hover{
+    transform:scale(1.1);
+    box-shadow:0 8px 30px rgba(0,136,204,0.6);
+}
+
+.telegram-support img{
+    width:35px;
+    height:35px;
+}
+
+.telegram-support .support-text{
+    position:absolute;
+    right:80px;
+    top:50%;
+    transform:translateY(-50%);
+    background:#0088cc;
+    color:white;
+    padding:8px 15px;
+    border-radius:30px;
+    font-size:14px;
+    font-weight:bold;
+    white-space:nowrap;
+    opacity:0;
+    visibility:hidden;
+    transition:0.3s;
+    box-shadow:0 2px 10px rgba(0,0,0,0.2);
+}
+
+.telegram-support:hover .support-text{
+    opacity:1;
+    visibility:visible;
+    right:90px;
+}
+
+@media(max-width:768px){
+    .telegram-support a{
+        width:50px;
+        height:50px;
+    }
+    .telegram-support img{
+        width:28px;
+        height:28px;
+    }
+    .telegram-support .support-text{
+        display:none;
+    }
 }
 
 /* Footer */
@@ -1097,14 +1128,26 @@ footer{
     font-size:14px;
 }
 
+.header-buttons{
+    flex-direction:column;
+    gap:5px;
+}
+
 }
 
 </style>
 
-<!-- REMOVED <base target="_blank"> to prevent unwanted new tabs -->
-
 </head>
 <body>
+
+<!-- ====== FLOATING TELEGRAM SUPPORT BUTTON ====== -->
+
+<div class="telegram-support">
+    <a href="https://t.me/Smarttradersworld" target="_blank" rel="noopener noreferrer">
+        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.02-.14-.05-.2-.07-.06-.18-.04-.26-.02-.11.02-1.85 1.18-5.22 3.45-.49.34-.94.5-1.34.49-.44-.01-1.29-.25-1.92-.46-.77-.25-1.38-.38-1.33-.81.03-.22.33-.45.92-.68 3.62-1.58 6.04-2.62 7.26-3.12 3.46-1.41 4.18-1.65 4.65-1.66.1 0 .33.02.48.15.12.1.16.24.17.36-.01.06 0 .16-.02.26z'/%3E%3C/svg%3E" alt="Telegram Support">
+        <span class="support-text">💬 Support</span>
+    </a>
+</div>
 
 <!-- Loader -->
 
@@ -1122,9 +1165,12 @@ footer{
     <p>Capital Growth Investment System</p>
 </div>
 
-<div>
-    <button id="headerAuthBtn" onclick="scrollToAuth()" class="pulse-btn">
+<div class="header-buttons">
+    <button id="headerAuthBtn" onclick="scrollToAuth()" class="get-started-btn">
         Get Started
+    </button>
+    <button id="headerSwitchAccountBtn" onclick="openAccountSwitcher()" class="switch-account-btn" style="display:none;">
+        Switch Account
     </button>
     <button id="headerLogoutBtn" onclick="logout()" class="logout-btn" style="display:none;">
         Logout
@@ -1565,6 +1611,21 @@ Structured investment participation based on business operational performance an
 </div>
 </div>
 
+<!-- ====== ACCOUNT SWITCHER MODAL ====== -->
+
+<div class="modal-overlay" id="accountSwitcherModal">
+<div class="modal-box account-switcher-modal">
+    <h3>🔄 Switch Account</h3>
+    <p class="modal-sub">Select an account to log in</p>
+
+    <div class="account-list" id="accountList">
+        <p style="color:#888; text-align:center;">No other accounts found</p>
+    </div>
+
+    <div class="modal-close" onclick="closeAccountSwitcher()">Close</div>
+</div>
+</div>
+
 <!-- ====== AUTH SECTION ====== -->
 
 <section class="auth-section" id="auth">
@@ -1621,7 +1682,47 @@ window.onload = function(){
         checkAutoLogin();
         updateHeaderButtons();
         checkPendingDepositCompletion();
+        loadAllAccountsList();
     }, 2000);
+}
+
+function loadAllAccountsList(){
+    let allUsers = JSON.parse(localStorage.getItem("wig_allUsers") || "{}");
+    let accountList = document.getElementById("accountList");
+    
+    let accounts = Object.keys(allUsers).filter(username => username !== localStorage.getItem("wig_username"));
+    
+    if(accounts.length === 0){
+        accountList.innerHTML = '<p style="color:#888; text-align:center;">No other accounts found</p>';
+        return;
+    }
+    
+    accountList.innerHTML = accounts.map(username => `
+        <div class="account-item" onclick="switchToAccount('${username}')">
+            <div class="account-name">${username}</div>
+            <button class="account-switch-btn">Switch</button>
+        </div>
+    `).join('');
+}
+
+function switchToAccount(username){
+    let allUsers = JSON.parse(localStorage.getItem("wig_allUsers") || "{}");
+    if(allUsers[username]){
+        localStorage.setItem("wig_username", username);
+        localStorage.setItem("wig_password", allUsers[username].password);
+        localStorage.setItem("wig_loggedIn", "true");
+        closeAccountSwitcher();
+        location.reload();
+    }
+}
+
+function openAccountSwitcher(){
+    loadAllAccountsList();
+    document.getElementById("accountSwitcherModal").style.display = "flex";
+}
+
+function closeAccountSwitcher(){
+    document.getElementById("accountSwitcherModal").style.display = "none";
 }
 
 function checkPendingDepositCompletion(){
@@ -1710,9 +1811,11 @@ function updateHeaderButtons(){
     if(isLoggedIn){
         document.getElementById("headerAuthBtn").style.display = "none";
         document.getElementById("headerLogoutBtn").style.display = "block";
+        document.getElementById("headerSwitchAccountBtn").style.display = "block";
     } else {
         document.getElementById("headerAuthBtn").style.display = "block";
         document.getElementById("headerLogoutBtn").style.display = "none";
+        document.getElementById("headerSwitchAccountBtn").style.display = "none";
     }
 }
 
@@ -1823,10 +1926,11 @@ function handleAuth(){
     }
 
     if(isLoginMode){
-        let savedUser = localStorage.getItem("wig_username");
-        let savedPass = localStorage.getItem("wig_password");
-
-        if(username == savedUser && password == savedPass){
+        let allUsers = JSON.parse(localStorage.getItem("wig_allUsers") || "{}");
+        
+        if(allUsers[username] && allUsers[username].password === password){
+            localStorage.setItem("wig_username", username);
+            localStorage.setItem("wig_password", password);
             localStorage.setItem("wig_loggedIn", "true");
             updateHeaderButtons();
             showInvestorDashboard();
@@ -2212,7 +2316,6 @@ function confirmDeposit(){
     
     closeDepositModal();
     
-    // FIXED: Redirect in the same tab to the Google Form
     window.location.href = DEPOSIT_FORM_URL;
     
     alert("Please complete the Google Form to confirm your deposit. After completing, come back to this page.");

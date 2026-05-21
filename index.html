@@ -6,21 +6,16 @@
 <title>World Investment Global</title>
 
 <style>
-
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
     font-family:Arial, sans-serif;
 }
-
 body{
     background:#0f172a;
     color:white;
 }
-
-/* Loader */
-
 #loader{
     position:fixed;
     width:100%;
@@ -32,7 +27,6 @@ body{
     flex-direction:column;
     z-index:9999;
 }
-
 .spinner{
     width:80px;
     height:80px;
@@ -41,20 +35,13 @@ body{
     border-radius:50%;
     animation:spin 1s linear infinite;
 }
-
 @keyframes spin{
-    100%{
-        transform:rotate(360deg);
-    }
+    100%{ transform:rotate(360deg); }
 }
-
 #loader h2{
     margin-top:20px;
     color:gold;
 }
-
-/* Header */
-
 header{
     padding:20px;
     display:flex;
@@ -65,22 +52,18 @@ header{
     top:0;
     z-index:1000;
 }
-
 .logo h1{
     color:gold;
     font-size:28px;
 }
-
 .logo p{
     color:#ccc;
     font-size:14px;
 }
-
 .header-buttons{
     display:flex;
     gap:10px;
 }
-
 .header-buttons button{
     padding:12px 20px;
     border:none;
@@ -88,53 +71,48 @@ header{
     font-weight:bold;
     cursor:pointer;
 }
-
 .get-started-btn{
     background:gold;
     color:black;
 }
-
 .logout-btn{
     background:#dc2626;
     color:white;
 }
-
 .logout-btn:hover{
     background:#b91c1c;
 }
-
 .switch-account-btn{
     background:#3b82f6;
     color:white;
 }
-
 .switch-account-btn:hover{
     background:#2563eb;
 }
-
-/* Hero */
-
+.restore-code-btn{
+    background:#10b981;
+    color:white;
+}
+.restore-code-btn:hover{
+    background:#059669;
+}
 .hero{
     padding:80px 20px;
     text-align:center;
 }
-
 .hero h2{
     font-size:48px;
     margin-bottom:20px;
 }
-
 .hero p{
     max-width:700px;
     margin:auto;
     color:#ccc;
     line-height:1.7;
 }
-
 .hero-buttons{
     margin-top:30px;
 }
-
 .hero-buttons a{
     text-decoration:none;
     padding:15px 25px;
@@ -143,19 +121,14 @@ header{
     display:inline-block;
     font-weight:bold;
 }
-
 .btn1{
     background:gold;
     color:black;
 }
-
 .btn2{
     border:1px solid gold;
     color:gold;
 }
-
-/* About Section */
-
 .about-section{
     width:90%;
     max-width:1200px;
@@ -164,14 +137,12 @@ header{
     border-radius:20px;
     padding:40px;
 }
-
 .about-section h2{
     text-align:center;
     color:gold;
     font-size:36px;
     margin-bottom:30px;
 }
-
 .about-description{
     text-align:center;
     color:#ccc;
@@ -180,18 +151,15 @@ header{
     line-height:1.9;
     font-size:16px;
 }
-
 .about-description strong{
     color:gold;
 }
-
 .about-grid{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
     gap:30px;
     margin-top:40px;
 }
-
 .about-card{
     background:#1e293b;
     padding:30px;
@@ -200,31 +168,24 @@ header{
     transition:0.4s;
     border:1px solid rgba(255,215,0,0.1);
 }
-
 .about-card:hover{
     transform:translateY(-10px);
     border-color:gold;
     box-shadow:0 10px 30px rgba(255,215,0,0.15);
 }
-
 .about-card .icon{
     font-size:50px;
     margin-bottom:15px;
 }
-
 .about-card h3{
     color:gold;
     margin-bottom:15px;
     font-size:22px;
 }
-
 .about-card p{
     color:#ccc;
     line-height:1.6;
 }
-
-/* How It Works Section */
-
 .how-it-works{
     width:90%;
     max-width:1200px;
@@ -233,21 +194,18 @@ header{
     border-radius:20px;
     padding:40px;
 }
-
 .how-it-works h2{
     text-align:center;
     color:gold;
     font-size:36px;
     margin-bottom:30px;
 }
-
 .steps-grid{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
     gap:25px;
     margin-top:30px;
 }
-
 .step-card{
     background:#1e293b;
     padding:30px 20px;
@@ -257,13 +215,11 @@ header{
     border:1px solid rgba(255,215,0,0.1);
     position:relative;
 }
-
 .step-card:hover{
     transform:translateY(-8px);
     border-color:gold;
     box-shadow:0 10px 25px rgba(255,215,0,0.1);
 }
-
 .step-number{
     width:50px;
     height:50px;
@@ -277,21 +233,16 @@ header{
     font-weight:bold;
     margin:0 auto 15px;
 }
-
 .step-card h3{
     color:gold;
     margin-bottom:10px;
     font-size:20px;
 }
-
 .step-card p{
     color:#ccc;
     line-height:1.6;
     font-size:14px;
 }
-
-/* Dashboard */
-
 .dashboard{
     width:90%;
     max-width:1200px;
@@ -300,7 +251,6 @@ header{
     border-radius:20px;
     padding:30px;
 }
-
 .dashboard-top{
     display:flex;
     justify-content:space-between;
@@ -308,64 +258,49 @@ header{
     flex-wrap:wrap;
     gap:20px;
 }
-
 .dashboard-top h2{
     color:gold;
 }
-
 .status{
     background:green;
     padding:10px 20px;
     border-radius:20px;
 }
-
-/* Stats */
-
 .stats{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
     gap:20px;
     margin-top:30px;
 }
-
 .stat-box{
     background:#1e293b;
     padding:25px;
     border-radius:20px;
     transition:0.3s;
 }
-
 .stat-box:hover{
     transform:translateY(-5px);
 }
-
 .stat-box p{
     color:#ccc;
 }
-
 .stat-box h3{
     margin-top:15px;
     font-size:32px;
     color:gold;
 }
-
-/* Performance */
-
 .performance-box{
     margin-top:40px;
 }
-
 .performance-box h3{
     margin-bottom:20px;
     color:gold;
 }
-
 .performance-grid{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
     gap:20px;
 }
-
 .performance-card{
     background:#1e293b;
     padding:25px;
@@ -373,23 +308,17 @@ header{
     text-align:center;
     transition:0.3s;
 }
-
 .performance-card:hover{
     transform:scale(1.03);
 }
-
 .performance-card p{
     color:#ccc;
 }
-
 .performance-card h2{
     margin-top:15px;
     font-size:45px;
     color:gold;
 }
-
-/* ====== INVESTOR DASHBOARD TABS ====== */
-
 .dashboard-tabs{
     display:flex;
     gap:10px;
@@ -398,7 +327,6 @@ header{
     padding-bottom:10px;
     flex-wrap:wrap;
 }
-
 .tab-btn{
     padding:12px 25px;
     background:transparent;
@@ -410,26 +338,19 @@ header{
     transition:0.3s;
     border-radius:10px;
 }
-
 .tab-btn:hover{
     color:gold;
 }
-
 .tab-btn.active{
     background:gold;
     color:black;
 }
-
 .tab-pane{
     display:none;
 }
-
 .tab-pane.active{
     display:block;
 }
-
-/* ====== INVESTOR DASHBOARD ====== */
-
 .investor-dashboard{
     width:90%;
     max-width:1200px;
@@ -439,21 +360,18 @@ header{
     padding:40px;
     display:none;
 }
-
 .investor-dashboard h2{
     text-align:center;
     color:gold;
     font-size:32px;
     margin-bottom:30px;
 }
-
 .balance-grid{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
     gap:20px;
     margin-bottom:30px;
 }
-
 .balance-card{
     background:#1e293b;
     padding:30px;
@@ -462,32 +380,25 @@ header{
     border:1px solid rgba(255,215,0,0.1);
     transition:0.3s;
 }
-
 .balance-card:hover{
     border-color:gold;
     box-shadow:0 5px 20px rgba(255,215,0,0.1);
 }
-
 .balance-card .label{
     color:#888;
     font-size:14px;
     margin-bottom:10px;
 }
-
 .balance-card .value{
     color:gold;
     font-size:36px;
     font-weight:bold;
 }
-
 .balance-card .sub{
     color:#666;
     font-size:12px;
     margin-top:5px;
 }
-
-/* Action Buttons */
-
 .action-buttons{
     display:flex;
     gap:20px;
@@ -495,7 +406,6 @@ header{
     flex-wrap:wrap;
     margin-bottom:30px;
 }
-
 .action-btn{
     padding:18px 40px;
     border:none;
@@ -506,29 +416,24 @@ header{
     transition:0.3s;
     min-width:200px;
 }
-
 .deposit-btn{
     background:gold;
     color:black;
 }
-
 .deposit-btn:hover{
     background:#ffd700;
     transform:translateY(-3px);
     box-shadow:0 8px 25px rgba(255,215,0,0.3);
 }
-
 .withdraw-btn{
     background:#dc2626;
     color:white;
 }
-
 .withdraw-btn:hover{
     background:#b91c1c;
     transform:translateY(-3px);
     box-shadow:0 8px 25px rgba(220,38,38,0.3);
 }
-
 .withdraw-btn:disabled{
     background:#444;
     color:#888;
@@ -536,9 +441,6 @@ header{
     transform:none;
     box-shadow:none;
 }
-
-/* Investment Status */
-
 .investment-status{
     background:#1e293b;
     border-radius:20px;
@@ -546,51 +448,41 @@ header{
     margin-top:20px;
     border:1px solid rgba(255,215,0,0.1);
 }
-
 .investment-status h3{
     color:gold;
     margin-bottom:20px;
     text-align:center;
 }
-
 .status-grid{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
     gap:20px;
 }
-
 .status-item{
     background:#0f172a;
     padding:20px;
     border-radius:15px;
     text-align:center;
 }
-
 .status-item .label{
     color:#888;
     font-size:13px;
     margin-bottom:8px;
 }
-
 .status-item .value{
     color:white;
     font-size:24px;
     font-weight:bold;
 }
-
 .status-item .value.pending{
     color:#f59e0b;
 }
-
 .status-item .value.completed{
     color:#22c55e;
 }
-
 .status-item .value.processing{
     color:#3b82f6;
 }
-
-/* Countdown Timer */
 .countdown-box{
     background:#0f172a;
     padding:25px;
@@ -598,122 +490,98 @@ header{
     text-align:center;
     margin-top:15px;
 }
-
 .countdown-box .label{
     color:#888;
     font-size:14px;
     margin-bottom:10px;
 }
-
 .countdown-timer{
     display:flex;
     justify-content:center;
     gap:15px;
     flex-wrap:wrap;
 }
-
 .countdown-unit{
     background:#1e293b;
     padding:15px 20px;
     border-radius:12px;
     min-width:70px;
 }
-
 .countdown-unit .num{
     color:gold;
     font-size:28px;
     font-weight:bold;
 }
-
 .countdown-unit .txt{
     color:#888;
     font-size:12px;
 }
-
-/* ====== TRANSACTIONS TABLE ====== */
-
 .transactions-table{
     width:100%;
     overflow-x:auto;
     margin-top:20px;
 }
-
 .transactions-table table{
     width:100%;
     border-collapse:collapse;
 }
-
 .transactions-table th,
 .transactions-table td{
     padding:15px;
     text-align:left;
     border-bottom:1px solid #1e293b;
 }
-
 .transactions-table th{
     color:gold;
     font-weight:bold;
 }
-
 .transactions-table td{
     color:#ccc;
 }
-
 .status-badge{
     padding:5px 12px;
     border-radius:20px;
     font-size:12px;
     display:inline-block;
 }
-
 .status-badge.completed{
     background:#22c55e20;
     color:#22c55e;
 }
-
 .status-badge.pending{
     background:#f59e0b20;
     color:#f59e0b;
 }
-
 .status-badge.declined{
     background:#dc262620;
     color:#dc2626;
 }
-
 .status-badge.processing{
     background:#3b82f620;
     color:#3b82f6;
 }
-
-/* ====== REFERRAL SECTION ====== */
-
 .referral-stats-grid{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
     gap:20px;
     margin-bottom:30px;
 }
-
 .referral-stat-card{
     background:#1e293b;
     padding:25px;
     border-radius:20px;
     text-align:center;
 }
-
 .referral-stat-card .label{
     color:#888;
     font-size:14px;
     margin-bottom:10px;
 }
-
 .referral-stat-card .value{
     color:gold;
     font-size:32px;
     font-weight:bold;
 }
-
 .referral-link-box{
     background:#0f172a;
     padding:20px;
@@ -724,7 +592,6 @@ header{
     flex-wrap:wrap;
     align-items:center;
 }
-
 .referral-link-box input{
     flex:1;
     padding:15px;
@@ -734,7 +601,6 @@ header{
     color:white;
     font-size:14px;
 }
-
 .referral-link-box button{
     padding:15px 25px;
     background:gold;
@@ -744,11 +610,9 @@ header{
     font-weight:bold;
     cursor:pointer;
 }
-
 .referral-earnings-list{
     margin-top:20px;
 }
-
 .referral-item{
     background:#0f172a;
     padding:15px;
@@ -759,18 +623,13 @@ header{
     align-items:center;
     flex-wrap:wrap;
 }
-
 .referral-item .referral-name{
     color:gold;
     font-weight:bold;
 }
-
 .referral-item .referral-amount{
     color:#22c55e;
 }
-
-/* ====== DEPOSIT MODAL ====== */
-
 .modal-overlay{
     position:fixed;
     top:0;
@@ -783,7 +642,6 @@ header{
     align-items:center;
     z-index:10000;
 }
-
 .modal-box{
     background:#111827;
     border-radius:25px;
@@ -794,7 +652,6 @@ header{
     box-shadow:0 0 50px rgba(255,215,0,0.1);
     animation:modalPop 0.3s ease-out;
 }
-
 @keyframes modalPop{
     from{
         transform:scale(0.8);
@@ -805,28 +662,24 @@ header{
         opacity:1;
     }
 }
-
 .modal-box h3{
     color:gold;
     text-align:center;
     font-size:24px;
     margin-bottom:10px;
 }
-
 .modal-box .modal-sub{
     text-align:center;
     color:#888;
     font-size:14px;
     margin-bottom:25px;
 }
-
 .amount-grid{
     display:grid;
     grid-template-columns:repeat(2,1fr);
     gap:15px;
     margin-bottom:25px;
 }
-
 .amount-btn{
     padding:15px;
     border:2px solid #333;
@@ -838,18 +691,15 @@ header{
     cursor:pointer;
     transition:0.3s;
 }
-
 .amount-btn:hover{
     border-color:gold;
     color:gold;
 }
-
 .amount-btn.selected{
     border-color:gold;
     background:rgba(255,215,0,0.1);
     color:gold;
 }
-
 .custom-amount{
     width:100%;
     padding:15px;
@@ -861,11 +711,9 @@ header{
     margin-bottom:20px;
     outline:none;
 }
-
 .custom-amount:focus{
     border-color:gold;
 }
-
 .modal-box button{
     width:100%;
     padding:15px;
@@ -878,11 +726,9 @@ header{
     cursor:pointer;
     transition:0.3s;
 }
-
 .modal-box button:hover{
     background:#ffd700;
 }
-
 .modal-close{
     text-align:center;
     margin-top:15px;
@@ -890,19 +736,14 @@ header{
     font-size:14px;
     cursor:pointer;
 }
-
 .modal-close:hover{
     color:gold;
 }
-
-/* ====== WITHDRAWAL MODAL ====== */
-
 .withdraw-modal .amount-grid{
     display:grid;
     grid-template-columns:1fr;
     gap:15px;
 }
-
 .withdraw-option{
     padding:15px;
     border:2px solid #333;
@@ -914,30 +755,23 @@ header{
     transition:0.3s;
     text-align:center;
 }
-
 .withdraw-option:hover{
     border-color:#dc2626;
     color:#dc2626;
 }
-
 .withdraw-option.selected{
     border-color:#dc2626;
     background:rgba(220,38,38,0.1);
     color:#dc2626;
 }
-
-/* ====== ACCOUNT SWITCHER MODAL ====== */
-
 .account-switcher-modal .modal-box{
     max-width:400px;
 }
-
 .account-list{
     max-height:300px;
     overflow-y:auto;
     margin:20px 0;
 }
-
 .account-item{
     display:flex;
     justify-content:space-between;
@@ -949,17 +783,14 @@ header{
     cursor:pointer;
     transition:0.3s;
 }
-
 .account-item:hover{
     background:#334155;
     transform:translateX(5px);
 }
-
 .account-item .account-name{
     color:gold;
     font-weight:bold;
 }
-
 .account-item .account-switch-btn{
     padding:8px 15px;
     background:gold;
@@ -969,13 +800,9 @@ header{
     cursor:pointer;
     font-weight:bold;
 }
-
 .account-item .account-switch-btn:hover{
     background:#ffd700;
 }
-
-/* ====== FLOATING TELEGRAM SUPPORT BUTTON ====== */
-
 .telegram-support{
     position:fixed;
     bottom:30px;
@@ -984,7 +811,6 @@ header{
     cursor:pointer;
     transition:0.3s;
 }
-
 .telegram-support a{
     display:flex;
     align-items:center;
@@ -997,17 +823,14 @@ header{
     transition:0.3s;
     text-decoration:none;
 }
-
 .telegram-support a:hover{
     transform:scale(1.1);
     box-shadow:0 8px 30px rgba(0,136,204,0.6);
 }
-
 .telegram-support img{
     width:35px;
     height:35px;
 }
-
 .telegram-support .support-text{
     position:absolute;
     right:80px;
@@ -1025,13 +848,11 @@ header{
     transition:0.3s;
     box-shadow:0 2px 10px rgba(0,0,0,0.2);
 }
-
 .telegram-support:hover .support-text{
     opacity:1;
     visibility:visible;
     right:90px;
 }
-
 @media(max-width:768px){
     .telegram-support a{
         width:50px;
@@ -1045,17 +866,106 @@ header{
         display:none;
     }
 }
-
-/* Footer */
-
+.auth-section{
+    width:90%;
+    max-width:500px;
+    margin:60px auto;
+    background:#111827;
+    border-radius:25px;
+    padding:40px;
+    border:1px solid rgba(255,215,0,0.15);
+    box-shadow:0 0 40px rgba(255,215,0,0.05);
+}
+.auth-section .auth-icon{
+    text-align:center;
+    font-size:60px;
+    margin-bottom:10px;
+}
+.auth-section h2{
+    text-align:center;
+    color:gold;
+    font-size:28px;
+    margin-bottom:5px;
+}
+.auth-section .auth-subtitle{
+    text-align:center;
+    color:#888;
+    font-size:14px;
+    margin-bottom:30px;
+}
+.auth-section input{
+    width:100%;
+    padding:15px 20px;
+    margin-bottom:20px;
+    border:none;
+    border-radius:12px;
+    background:#1e293b;
+    color:white;
+    font-size:16px;
+    outline:none;
+    transition:0.3s;
+    border:1px solid transparent;
+}
+.auth-section input:focus{
+    border-color:gold;
+    box-shadow:0 0 10px rgba(255,215,0,0.2);
+}
+.auth-section input::placeholder{
+    color:#666;
+}
+.auth-section button{
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:12px;
+    background:gold;
+    color:black;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.3s;
+    margin-top:5px;
+}
+.auth-section button:hover{
+    background:#ffd700;
+    transform:translateY(-2px);
+    box-shadow:0 5px 20px rgba(255,215,0,0.3);
+}
+.auth-divider{
+    display:flex;
+    align-items:center;
+    margin:25px 0;
+    color:#555;
+    font-size:13px;
+}
+.auth-divider::before,
+.auth-divider::after{
+    content:"";
+    flex:1;
+    height:1px;
+    background:#333;
+    margin:0 15px;
+}
+.auth-toggle{
+    text-align:center;
+    margin-top:20px;
+    color:#888;
+    font-size:14px;
+}
+.auth-toggle a{
+    color:gold;
+    text-decoration:none;
+    font-weight:bold;
+    cursor:pointer;
+}
+.auth-toggle a:hover{
+    text-decoration:underline;
+}
 footer{
     text-align:center;
     padding:40px 20px;
     color:#999;
 }
-
-/* Animations */
-
 @keyframes fadeInUp{
     from{
         opacity:0;
@@ -1066,7 +976,6 @@ footer{
         transform:translateY(0);
     }
 }
-
 @keyframes pulse{
     0%,100%{
         transform:scale(1);
@@ -1075,7 +984,6 @@ footer{
         transform:scale(1.05);
     }
 }
-
 @keyframes glow{
     0%,100%{
         box-shadow:0 0 5px rgba(255,215,0,0.3);
@@ -1084,63 +992,76 @@ footer{
         box-shadow:0 0 20px rgba(255,215,0,0.6);
     }
 }
-
 .fade-in{
     animation:fadeInUp 0.8s ease-out forwards;
 }
-
 .pulse-btn{
     animation:pulse 2s infinite;
 }
-
 .glow-effect{
     animation:glow 2s infinite;
 }
-
-/* Responsive */
-
 @media(max-width:768px){
-
-.hero h2{
-    font-size:35px;
+    .hero h2{
+        font-size:35px;
+    }
+    .action-buttons{
+        flex-direction:column;
+        align-items:center;
+    }
+    .action-btn{
+        width:100%;
+        max-width:300px;
+    }
+    .amount-grid{
+        grid-template-columns:1fr !important;
+    }
+    .dashboard-tabs{
+        justify-content:center;
+    }
+    .tab-btn{
+        padding:10px 15px;
+        font-size:14px;
+    }
+    .header-buttons{
+        flex-direction:column;
+        gap:5px;
+    }
 }
-
-.action-buttons{
-    flex-direction:column;
-    align-items:center;
+/* Restore Code Modal */
+.restore-modal .modal-box{
+    text-align:center;
 }
-
-.action-btn{
+.restore-code-display{
+    background:#1e293b;
+    padding:20px;
+    border-radius:15px;
+    margin:20px 0;
+    font-size:32px;
+    font-weight:bold;
+    letter-spacing:3px;
+    color:gold;
+    font-family:monospace;
+}
+.restore-input{
     width:100%;
-    max-width:300px;
+    padding:15px;
+    background:#1e293b;
+    border:2px solid #333;
+    border-radius:12px;
+    color:white;
+    font-size:18px;
+    text-align:center;
+    letter-spacing:2px;
+    margin:20px 0;
 }
-
-.amount-grid{
-    grid-template-columns:1fr !important;
+.restore-input:focus{
+    border-color:gold;
+    outline:none;
 }
-
-.dashboard-tabs{
-    justify-content:center;
-}
-
-.tab-btn{
-    padding:10px 15px;
-    font-size:14px;
-}
-
-.header-buttons{
-    flex-direction:column;
-    gap:5px;
-}
-
-}
-
 </style>
-
 </head>
 <body>
-
-<!-- ====== FLOATING TELEGRAM SUPPORT BUTTON ====== -->
 
 <div class="telegram-support">
     <a href="https://t.me/Smarttradersworld" target="_blank" rel="noopener noreferrer">
@@ -1149,532 +1070,255 @@ footer{
     </a>
 </div>
 
-<!-- Loader -->
-
 <div id="loader">
     <div class="spinner"></div>
     <h2>WORLD INVESTMENT GLOBAL</h2>
 </div>
 
-<!-- Header -->
-
 <header>
-
-<div class="logo">
-    <h1>WORLD INVESTMENT GLOBAL</h1>
-    <p>Capital Growth Investment System</p>
-</div>
-
-<div class="header-buttons">
-    <button id="headerAuthBtn" onclick="scrollToAuth()" class="get-started-btn">
-        Get Started
-    </button>
-    <button id="headerSwitchAccountBtn" onclick="openAccountSwitcher()" class="switch-account-btn" style="display:none;">
-        Switch Account
-    </button>
-    <button id="headerLogoutBtn" onclick="logout()" class="logout-btn" style="display:none;">
-        Logout
-    </button>
-</div>
-
+    <div class="logo">
+        <h1>WORLD INVESTMENT GLOBAL</h1>
+        <p>Capital Growth Investment System</p>
+    </div>
+    <div class="header-buttons">
+        <button id="headerAuthBtn" onclick="scrollToAuth()" class="get-started-btn">Get Started</button>
+        <button id="headerRestoreBtn" onclick="openRestoreModal()" class="restore-code-btn" style="display:inline-block;">🔑 Restore Account</button>
+        <button id="headerSwitchAccountBtn" onclick="openAccountSwitcher()" class="switch-account-btn" style="display:none;">Switch Account</button>
+        <button id="headerLogoutBtn" onclick="logout()" class="logout-btn" style="display:none;">Logout</button>
+    </div>
 </header>
 
-<!-- Hero -->
-
 <section class="hero">
-
-<h2 class="fade-in">Professional Investment System</h2>
-
-<p class="fade-in">
-Structured investment participation based on business operational performance and long-term capital growth systems.
-</p>
-
-<div class="hero-buttons">
-    <a href="#auth" class="btn1 glow-effect">Create Account</a>
-    <a href="#dashboard" class="btn2">System Overview</a>
-</div>
-
+    <h2 class="fade-in">Professional Investment System</h2>
+    <p class="fade-in">Structured investment participation based on business operational performance and long-term capital growth systems.</p>
+    <div class="hero-buttons">
+        <a href="#auth" class="btn1 glow-effect">Create Account</a>
+        <a href="#dashboard" class="btn2">System Overview</a>
+    </div>
 </section>
-
-<!-- About Section -->
 
 <section class="about-section" id="about">
-
-<h2>About Our Investment System</h2>
-
-<div class="about-description">
-    <p>
-        <strong>World Investment Global</strong> is a real business investment system where your capital is actively deployed into profitable business operations. We do not deal in virtual or speculative trading — we invest your money into <strong>real businesses</strong> with proven track records.
-    </p>
-    <br>
-    <p>
-        Here is how it works: You provide a minimum capital of <strong>₦22,000</strong>, and we channel it into our portfolio of active business ventures. Over a fixed <strong>15-day investment cycle</strong>, your capital generates returns based on the actual performance of these businesses. Our participants consistently earn between <strong>10% to 20% profit</strong> per cycle, depending on market conditions and business performance during that period.
-    </p>
-    <br>
-    <p>
-        Every investment is backed by real operational data, transparent reporting, and a commitment to sustainable growth. Whether you are a first-time investor or building a portfolio, our system gives you access to real business returns without the complexity of managing operations yourself. Your money works for you — in real businesses, with real results.
-    </p>
-    <br>
-    <p>
-        Additionally, you can boost your earnings through our <strong>referral program</strong>. Bring in new participants and earn <strong>8% referral bonus</strong> on every successful investment they make. It is a win-win: you grow your network, and your income grows with it.
-    </p>
-</div>
-
-<div class="about-grid">
-
-<div class="about-card">
-    <div class="icon">🏢</div>
-    <h3>Real Business Operations</h3>
-    <p>Your capital is invested into actual running businesses with verified operational performance and transparent financial records.</p>
-</div>
-
-<div class="about-card">
-    <div class="icon">📈</div>
-    <h3>10% - 20% Returns</h3>
-    <p>Generate consistent profit of 10% to 20% every 15-day cycle based on real business performance and market conditions.</p>
-</div>
-
-<div class="about-card">
-    <div class="icon">💰</div>
-    <h3>Low Entry Barrier</h3>
-    <p>Start investing with as little as ₦22,000 and watch your capital grow through real business operations over a 15-day cycle.</p>
-</div>
-
-<div class="about-card">
-    <div class="icon">🤝</div>
-    <h3>Referral Rewards</h3>
-    <p>Earn 8% referral bonus for every new participant you bring into the system who makes an investment.</p>
-</div>
-
-<div class="about-card">
-    <div class="icon">⚡</div>
-    <h3>Fast 15-Day Cycle</h3>
-    <p>Enjoy quick investment cycles with returns delivered within just 15 days of capital deployment into business operations.</p>
-</div>
-
-<div class="about-card">
-    <div class="icon">📊</div>
-    <h3>Live Performance Tracking</h3>
-    <p>Monitor your investment performance in real-time with our live dashboard showing daily and weekly business returns.</p>
-</div>
-
-</div>
-
+    <h2>About Our Investment System</h2>
+    <div class="about-description">
+        <p><strong>World Investment Global</strong> is a real business investment system where your capital is actively deployed into profitable business operations. We do not deal in virtual or speculative trading — we invest your money into <strong>real businesses</strong> with proven track records.</p><br>
+        <p>Here is how it works: You provide a minimum capital of <strong>₦22,000</strong>, and we channel it into our portfolio of active business ventures. Over a fixed <strong>15-day investment cycle</strong>, your capital generates returns based on the actual performance of these businesses. Our participants consistently earn between <strong>10% to 20% profit</strong> per cycle, depending on market conditions and business performance during that period.</p><br>
+        <p>Every investment is backed by real operational data, transparent reporting, and a commitment to sustainable growth. Whether you are a first-time investor or building a portfolio, our system gives you access to real business returns without the complexity of managing operations yourself. Your money works for you — in real businesses, with real results.</p><br>
+        <p>Additionally, you can boost your earnings through our <strong>referral program</strong>. Bring in new participants and earn <strong>8% referral bonus</strong> on every successful investment they make. It is a win-win: you grow your network, and your income grows with it.</p>
+    </div>
+    <div class="about-grid">
+        <div class="about-card"><div class="icon">🏢</div><h3>Real Business Operations</h3><p>Your capital is invested into actual running businesses with verified operational performance and transparent financial records.</p></div>
+        <div class="about-card"><div class="icon">📈</div><h3>10% - 20% Returns</h3><p>Generate consistent profit of 10% to 20% every 15-day cycle based on real business performance and market conditions.</p></div>
+        <div class="about-card"><div class="icon">💰</div><h3>Low Entry Barrier</h3><p>Start investing with as little as ₦22,000 and watch your capital grow through real business operations over a 15-day cycle.</p></div>
+        <div class="about-card"><div class="icon">🤝</div><h3>Referral Rewards</h3><p>Earn 8% referral bonus for every new participant you bring into the system who makes an investment.</p></div>
+        <div class="about-card"><div class="icon">⚡</div><h3>Fast 15-Day Cycle</h3><p>Enjoy quick investment cycles with returns delivered within just 15 days of capital deployment into business operations.</p></div>
+        <div class="about-card"><div class="icon">📊</div><h3>Live Performance Tracking</h3><p>Monitor your investment performance in real-time with our live dashboard showing daily and weekly business returns.</p></div>
+    </div>
 </section>
-
-<!-- How It Works Section -->
 
 <section class="how-it-works" id="how-it-works">
-
-<h2>How It Works</h2>
-
-<div class="steps-grid">
-
-<div class="step-card">
-    <div class="step-number">1</div>
-    <h3>Create Account</h3>
-    <p>Register with your username and password to access the investment system.</p>
-</div>
-
-<div class="step-card">
-    <div class="step-number">2</div>
-    <h3>Deposit Capital</h3>
-    <p>Fund your account with a minimum of ₦22,000 to begin your investment journey.</p>
-</div>
-
-<div class="step-card">
-    <div class="step-number">3</div>
-    <h3>We Invest For You</h3>
-    <p>Your capital is deployed into real business operations with proven performance records.</p>
-</div>
-
-<div class="step-card">
-    <div class="step-number">4</div>
-    <h3>Earn 10% - 20%</h3>
-    <p>After 15 days, collect your capital plus profit based on real business performance.</p>
-</div>
-
-</div>
-
+    <h2>How It Works</h2>
+    <div class="steps-grid">
+        <div class="step-card"><div class="step-number">1</div><h3>Create Account</h3><p>Register with your username and password to access the investment system.</p></div>
+        <div class="step-card"><div class="step-number">2</div><h3>Deposit Capital</h3><p>Fund your account with a minimum of ₦22,000 to begin your investment journey.</p></div>
+        <div class="step-card"><div class="step-number">3</div><h3>We Invest For You</h3><p>Your capital is deployed into real business operations with proven performance records.</p></div>
+        <div class="step-card"><div class="step-number">4</div><h3>Earn 10% - 20%</h3><p>After 15 days, collect your capital plus profit based on real business performance.</p></div>
+    </div>
 </section>
-
-<!-- Dashboard -->
 
 <section class="dashboard" id="dashboard">
-
-<div class="dashboard-top">
-
-<div>
-    <h2>System Overview</h2>
-    <p style="margin-top:10px;color:#ccc;">
-        Structured investment participation dashboard
-    </p>
-</div>
-
-<div class="status">
-    Active System
-</div>
-
-</div>
-
-<!-- Stats -->
-
-<div class="stats">
-
-<div class="stat-box">
-    <p>Minimum Capital</p>
-    <h3>₦22K</h3>
-</div>
-
-<div class="stat-box">
-    <p>Investment Duration</p>
-    <h3>15 Days</h3>
-</div>
-
-<div class="stat-box">
-    <p>Profit Range</p>
-    <h3>10% - 20%</h3>
-</div>
-
-<div class="stat-box">
-    <p>Referral Bonus</p>
-    <h3>8%</h3>
-</div>
-
-</div>
-
-<!-- Performance -->
-
-<div class="performance-box">
-
-<h3>Live System Performance</h3>
-
-<div class="performance-grid">
-
-<div class="performance-card">
-    <p>Today Performance</p>
-    <h2 id="todayPerformance">5%</h2>
-</div>
-
-<div class="performance-card">
-    <p>Weekly Performance</p>
-    <h2 id="weeklyPerformance">12%</h2>
-</div>
-
-<div class="performance-card">
-    <p>Investment Cycle</p>
-    <h2>15 Days</h2>
-</div>
-
-</div>
-
-</div>
-
+    <div class="dashboard-top"><div><h2>System Overview</h2><p style="margin-top:10px;color:#ccc;">Structured investment participation dashboard</p></div><div class="status">Active System</div></div>
+    <div class="stats">
+        <div class="stat-box"><p>Minimum Capital</p><h3>₦22K</h3></div>
+        <div class="stat-box"><p>Investment Duration</p><h3>15 Days</h3></div>
+        <div class="stat-box"><p>Profit Range</p><h3>10% - 20%</h3></div>
+        <div class="stat-box"><p>Referral Bonus</p><h3>8%</h3></div>
+    </div>
+    <div class="performance-box"><h3>Live System Performance</h3><div class="performance-grid"><div class="performance-card"><p>Today Performance</p><h2 id="todayPerformance">5%</h2></div><div class="performance-card"><p>Weekly Performance</p><h2 id="weeklyPerformance">12%</h2></div><div class="performance-card"><p>Investment Cycle</p><h2>15 Days</h2></div></div></div>
 </section>
-
-<!-- ====== INVESTOR DASHBOARD (AFTER LOGIN) ====== -->
 
 <section class="investor-dashboard" id="investorDashboard">
-
-<h2>🎯 Welcome, <span id="welcomeUser">Investor</span>!</h2>
-
-<!-- Tabs Navigation -->
-<div class="dashboard-tabs">
-    <button class="tab-btn active" onclick="switchTab('investment')">📊 Investment</button>
-    <button class="tab-btn" onclick="switchTab('transactions')">📋 Transactions</button>
-    <button class="tab-btn" onclick="switchTab('referral')">🔗 Referral</button>
-</div>
-
-<!-- Investment Tab -->
-<div id="investmentTab" class="tab-pane active">
-
-<!-- Balance Cards -->
-<div class="balance-grid">
-
-<div class="balance-card">
-    <div class="label">💰 Available Balance</div>
-    <div class="value" id="availableBalance">₦0</div>
-    <div class="sub">Ready to withdraw</div>
-</div>
-
-<div class="balance-card">
-    <div class="label">📊 Total Invested</div>
-    <div class="value" id="totalInvested">₦0</div>
-    <div class="sub">Active investments</div>
-</div>
-
-<div class="balance-card">
-    <div class="label">📈 Total Profit</div>
-    <div class="value" id="totalProfit">₦0</div>
-    <div class="sub">Lifetime earnings</div>
-</div>
-
-<div class="balance-card">
-    <div class="label">🔄 Referral Reinvest</div>
-    <div class="value" id="referralBalance">₦0</div>
-    <div class="sub">Available for reinvestment</div>
-</div>
-
-</div>
-
-<!-- Action Buttons -->
-<div class="action-buttons">
-    <button class="action-btn deposit-btn" onclick="openDepositModal()">
-        💳 Deposit & Invest
-    </button>
-    <button class="action-btn withdraw-btn" id="withdrawBtn" onclick="openWithdrawModal()" disabled>
-        🏦 Withdraw Profit/Capital
-    </button>
-</div>
-
-<!-- Investment Status -->
-<div class="investment-status" id="investmentStatus" style="display:none;">
-
-<h3>📋 Active Investment Status</h3>
-
-<div class="status-grid">
-
-<div class="status-item">
-    <div class="label">Invested Amount</div>
-    <div class="value" id="statusAmount">₦0</div>
-</div>
-
-<div class="status-item">
-    <div class="label">Status</div>
-    <div class="value pending" id="statusText">PENDING</div>
-</div>
-
-<div class="status-item">
-    <div class="label">Expected Return</div>
-    <div class="value" id="statusReturn">₦0</div>
-</div>
-
-<div class="status-item">
-    <div class="label">Profit Rate</div>
-    <div class="value" id="statusRate">0%</div>
-</div>
-
-</div>
-
-<!-- Countdown -->
-<div class="countdown-box" id="countdownBox">
-    <div class="label">⏳ Time Remaining Until Maturity</div>
-    <div class="countdown-timer" id="countdownTimer">
-        <div class="countdown-unit">
-            <div class="num" id="cdDays">15</div>
-            <div class="txt">Days</div>
+    <h2>🎯 Welcome, <span id="welcomeUser">Investor</span>!</h2>
+    <div class="dashboard-tabs">
+        <button class="tab-btn active" onclick="switchTab('investment')">📊 Investment</button>
+        <button class="tab-btn" onclick="switchTab('transactions')">📋 Transactions</button>
+        <button class="tab-btn" onclick="switchTab('referral')">🔗 Referral</button>
+    </div>
+    <div id="investmentTab" class="tab-pane active">
+        <div class="balance-grid">
+            <div class="balance-card"><div class="label">💰 Available Balance</div><div class="value" id="availableBalance">₦0</div><div class="sub">Ready to withdraw</div></div>
+            <div class="balance-card"><div class="label">📊 Total Invested</div><div class="value" id="totalInvested">₦0</div><div class="sub">Active investments</div></div>
+            <div class="balance-card"><div class="label">📈 Total Profit</div><div class="value" id="totalProfit">₦0</div><div class="sub">Lifetime earnings</div></div>
+            <div class="balance-card"><div class="label">🔄 Referral Reinvest</div><div class="value" id="referralBalance">₦0</div><div class="sub">Available for reinvestment</div></div>
         </div>
-        <div class="countdown-unit">
-            <div class="num" id="cdHours">00</div>
-            <div class="txt">Hours</div>
+        <div class="action-buttons">
+            <button class="action-btn deposit-btn" onclick="openDepositModal()">💳 Deposit & Invest</button>
+            <button class="action-btn withdraw-btn" id="withdrawBtn" onclick="openWithdrawModal()" disabled>🏦 Withdraw Funds</button>
+            <button class="action-btn restore-code-btn" onclick="showBackupCode()">🔐 Show Backup Code</button>
         </div>
-        <div class="countdown-unit">
-            <div class="num" id="cdMinutes">00</div>
-            <div class="txt">Minutes</div>
+        <div class="investment-status" id="investmentStatus" style="display:none;">
+            <h3>📋 Active Investment Status</h3>
+            <div class="status-grid">
+                <div class="status-item"><div class="label">Invested Amount</div><div class="value" id="statusAmount">₦0</div></div>
+                <div class="status-item"><div class="label">Status</div><div class="value pending" id="statusText">PENDING</div></div>
+                <div class="status-item"><div class="label">Expected Return</div><div class="value" id="statusReturn">₦0</div></div>
+                <div class="status-item"><div class="label">Profit Rate</div><div class="value" id="statusRate">0%</div></div>
+            </div>
+            <div class="countdown-box" id="countdownBox"><div class="label">⏳ Time Remaining Until Maturity</div><div class="countdown-timer"><div class="countdown-unit"><div class="num" id="cdDays">15</div><div class="txt">Days</div></div><div class="countdown-unit"><div class="num" id="cdHours">00</div><div class="txt">Hours</div></div><div class="countdown-unit"><div class="num" id="cdMinutes">00</div><div class="txt">Minutes</div></div><div class="countdown-unit"><div class="num" id="cdSeconds">00</div><div class="txt">Seconds</div></div></div></div>
         </div>
-        <div class="countdown-unit">
-            <div class="num" id="cdSeconds">00</div>
-            <div class="txt">Seconds</div>
+        <div class="investment-status" id="noInvestmentMsg"><h3>🚀 Start Your Investment Journey</h3><p style="text-align:center;color:#888;margin-top:15px;">You currently have no active investment. Click "Deposit & Invest" to begin earning 10% - 20% profit on your capital within 15 days.</p></div>
+    </div>
+    <div id="transactionsTab" class="tab-pane"><h3 style="color:gold; margin-bottom:20px;">📋 Transaction History</h3><div class="transactions-table"><table><thead><tr><th>Date</th><th>Type</th><th>Amount</th><th>Status</th><th>Transaction ID</th></tr></thead><tbody id="transactionsList"><tr><td colspan="5" style="text-align:center;color:#888;">No transactions yet</td></tr></tbody></table></div></div>
+    <div id="referralTab" class="tab-pane">
+        <h3 style="color:gold; margin-bottom:20px;">🔗 Referral Program</h3>
+        <div class="referral-stats-grid">
+            <div class="referral-stat-card"><div class="label">👥 Total Referrals</div><div class="value" id="totalReferrals">0</div></div>
+            <div class="referral-stat-card"><div class="label">💰 Referral Earnings</div><div class="value" id="referralEarnings">₦0</div></div>
+            <div class="referral-stat-card"><div class="label">✅ Active Referrals</div><div class="value" id="activeReferrals">0</div></div>
+            <div class="referral-stat-card"><div class="label">🔄 Reinvest Balance</div><div class="value" id="referralReinvestBalance">₦0</div></div>
         </div>
+        <div class="referral-link-box"><input type="text" id="referralLink" readonly><button onclick="copyReferralLink()">📋 Copy Link</button></div>
+        <p style="color:#888; font-size:14px; margin:15px 0;">Share your unique link with friends. When they register and invest, you earn <strong style="color:gold;">8%</strong> of their investment amount as referral bonus!</p>
+        <div id="referralEarningsList"><h4 style="color:gold; margin:20px 0 10px;">📊 Referral Earnings History</h4><div id="referralsList"><p style="color:#888;">No referrals yet. Share your link to start earning!</p></div></div>
     </div>
-</div>
-
-</div>
-
-<!-- No Investment Message -->
-<div class="investment-status" id="noInvestmentMsg">
-    <h3>🚀 Start Your Investment Journey</h3>
-    <p style="text-align:center;color:#888;margin-top:15px;">
-        You currently have no active investment. Click "Deposit & Invest" to begin earning 10% - 20% profit on your capital within 15 days.
-    </p>
-</div>
-
-</div>
-
-<!-- Transactions Tab -->
-<div id="transactionsTab" class="tab-pane">
-
-<h3 style="color:gold; margin-bottom:20px;">📋 Transaction History</h3>
-
-<div class="transactions-table" id="transactionsTable">
-    <table>
-        <thead>
-            <tr><th>Date</th><th>Type</th><th>Amount</th><th>Status</th><th>Transaction ID</th></tr>
-        </thead>
-        <tbody id="transactionsList">
-            <tr><td colspan="5" style="text-align:center;color:#888;">No transactions yet</td></tr>
-        </tbody>
-    </table>
-</div>
-
-</div>
-
-<!-- Referral Tab -->
-<div id="referralTab" class="tab-pane">
-
-<h3 style="color:gold; margin-bottom:20px;">🔗 Referral Program</h3>
-
-<div class="referral-stats-grid">
-    <div class="referral-stat-card">
-        <div class="label">👥 Total Referrals</div>
-        <div class="value" id="totalReferrals">0</div>
-    </div>
-    <div class="referral-stat-card">
-        <div class="label">💰 Referral Earnings</div>
-        <div class="value" id="referralEarnings">₦0</div>
-    </div>
-    <div class="referral-stat-card">
-        <div class="label">✅ Active Referrals</div>
-        <div class="value" id="activeReferrals">0</div>
-    </div>
-    <div class="referral-stat-card">
-        <div class="label">🔄 Reinvest Balance</div>
-        <div class="value" id="referralReinvestBalance">₦0</div>
-    </div>
-</div>
-
-<div class="referral-link-box">
-    <input type="text" id="referralLink" readonly>
-    <button onclick="copyReferralLink()">📋 Copy Link</button>
-</div>
-
-<p style="color:#888; font-size:14px; margin:15px 0;">
-    Share your unique link with friends. When they register and invest, you earn <strong style="color:gold;">8%</strong> of their investment amount as referral bonus!
-</p>
-
-<div id="referralEarningsList">
-    <h4 style="color:gold; margin:20px 0 10px;">📊 Referral Earnings History</h4>
-    <div id="referralsList">
-        <p style="color:#888;">No referrals yet. Share your link to start earning!</p>
-    </div>
-</div>
-
-</div>
-
 </section>
 
-<!-- ====== DEPOSIT MODAL ====== -->
-
-<div class="modal-overlay" id="depositModal">
-<div class="modal-box">
-    <h3>💳 Deposit & Invest</h3>
-    <p class="modal-sub">Select your investment amount (Minimum ₦22,000)</p>
-
-    <div class="amount-grid">
-        <button class="amount-btn" onclick="selectAmount(22000)">₦22,000</button>
-        <button class="amount-btn" onclick="selectAmount(55000)">₦55,000</button>
-        <button class="amount-btn" onclick="selectAmount(110000)">₦110,000</button>
-        <button class="amount-btn" onclick="selectAmount(220000)">₦220,000</button>
-        <button class="amount-btn" onclick="selectAmount(550000)">₦550,000</button>
-        <button class="amount-btn" onclick="selectAmount(1100000)">₦1,100,000</button>
-    </div>
-
-    <input type="number" class="custom-amount" id="customAmount" placeholder="Or enter custom amount (₦)" min="22000">
-
-    <p style="text-align:center;color:#888;font-size:13px;margin-bottom:15px;">
-        Selected: <strong style="color:gold;" id="selectedAmountDisplay">₦0</strong>
-    </p>
-
-    <button onclick="confirmDeposit()">Proceed to Payment</button>
-    <div class="modal-close" onclick="closeDepositModal()">Cancel</div>
+<!-- Restore Code Modal -->
+<div class="modal-overlay" id="restoreModal">
+<div class="modal-box restore-modal">
+    <h3>🔐 Restore Account</h3>
+    <p class="modal-sub">Enter your backup code to restore your account</p>
+    <input type="text" id="restoreCodeInput" class="restore-input" placeholder="Enter 6-character code" maxlength="6" style="text-transform:uppercase">
+    <button onclick="restoreAccount()">Restore My Account</button>
+    <div class="modal-close" onclick="closeRestoreModal()">Cancel</div>
 </div>
 </div>
 
-<!-- ====== WITHDRAWAL MODAL ====== -->
-
-<div class="modal-overlay" id="withdrawModal">
-<div class="modal-box withdraw-modal">
-    <h3>🏦 Withdraw Funds</h3>
-    <p class="modal-sub">Select what you want to withdraw</p>
-
-    <div class="amount-grid">
-        <button class="withdraw-option" onclick="selectWithdraw('capital')">
-            💰 Withdraw Capital Only<br>
-            <span style="font-size:13px;color:#888;">Get back your original investment</span>
-        </button>
-        <button class="withdraw-option" onclick="selectWithdraw('profit')">
-            📈 Withdraw Profit Only<br>
-            <span style="font-size:13px;color:#888;">Keep capital, take only earnings</span>
-        </button>
-        <button class="withdraw-option" onclick="selectWithdraw('all')">
-            🏦 Withdraw Capital + Profit<br>
-            <span style="font-size:13px;color:#888;">Take everything and reinvest later</span>
-        </button>
-    </div>
-
-    <p style="text-align:center;color:#888;font-size:13px;margin-bottom:15px;">
-        Available: <strong style="color:gold;" id="withdrawAvailable">₦0</strong>
-    </p>
-
-    <button onclick="confirmWithdrawal()">Proceed to Withdrawal</button>
-    <div class="modal-close" onclick="closeWithdrawModal()">Cancel</div>
+<!-- Backup Code Modal -->
+<div class="modal-overlay" id="backupCodeModal">
+<div class="modal-box restore-modal">
+    <h3>🔐 Your Backup Code</h3>
+    <p class="modal-sub">Save this code securely! You can use it to restore your account on any device.</p>
+    <div class="restore-code-display" id="backupCodeDisplay">XXXXXX</div>
+    <button onclick="copyBackupCode()">📋 Copy Code</button>
+    <div class="modal-close" onclick="closeBackupCodeModal()">Close</div>
 </div>
 </div>
 
-<!-- ====== ACCOUNT SWITCHER MODAL ====== -->
+<div class="modal-overlay" id="depositModal"><div class="modal-box"><h3>💳 Deposit & Invest</h3><p class="modal-sub">Select your investment amount (Minimum ₦22,000)</p><div class="amount-grid"><button class="amount-btn" onclick="selectAmount(22000)">₦22,000</button><button class="amount-btn" onclick="selectAmount(55000)">₦55,000</button><button class="amount-btn" onclick="selectAmount(110000)">₦110,000</button><button class="amount-btn" onclick="selectAmount(220000)">₦220,000</button><button class="amount-btn" onclick="selectAmount(550000)">₦550,000</button><button class="amount-btn" onclick="selectAmount(1100000)">₦1,100,000</button></div><input type="number" class="custom-amount" id="customAmount" placeholder="Or enter custom amount (₦)" min="22000"><p style="text-align:center;color:#888;font-size:13px;margin-bottom:15px;">Selected: <strong style="color:gold;" id="selectedAmountDisplay">₦0</strong></p><button onclick="confirmDeposit()">Proceed to Payment</button><div class="modal-close" onclick="closeDepositModal()">Cancel</div></div></div>
 
-<div class="modal-overlay" id="accountSwitcherModal">
-<div class="modal-box account-switcher-modal">
-    <h3>🔄 Switch Account</h3>
-    <p class="modal-sub">Select an account to log in</p>
+<div class="modal-overlay" id="withdrawModal"><div class="modal-box withdraw-modal"><h3>🏦 Withdraw Funds</h3><p class="modal-sub">Select withdrawal type</p><div class="amount-grid"><button class="withdraw-option" onclick="selectWithdraw('profit')">📈 Withdraw Profit Only<br><span style="font-size:13px;color:#888;">Capital stays invested</span></button><button class="withdraw-option" onclick="selectWithdraw('all')">🏦 Withdraw Capital + Profit<br><span style="font-size:13px;color:#888;">End investment</span></button></div><p style="text-align:center;color:#888;font-size:13px;margin-bottom:15px;">Available to withdraw: <strong style="color:gold;" id="withdrawAvailable">₦0</strong></p><button onclick="processWithdrawRequest()">Proceed to Withdrawal</button><div class="modal-close" onclick="closeWithdrawModal()">Cancel</div></div></div>
 
-    <div class="account-list" id="accountList">
-        <p style="color:#888; text-align:center;">No other accounts found</p>
-    </div>
+<div class="modal-overlay" id="accountSwitcherModal"><div class="modal-box account-switcher-modal"><h3>🔄 Switch Account</h3><p class="modal-sub">Select an account to log in</p><div class="account-list" id="accountList"><p style="color:#888; text-align:center;">No other accounts found</p></div><div class="modal-close" onclick="closeAccountSwitcher()">Close</div></div></div>
 
-    <div class="modal-close" onclick="closeAccountSwitcher()">Close</div>
-</div>
-</div>
+<section class="auth-section" id="auth"><div class="auth-icon">🔐</div><h2 id="authTitle">Create Account</h2><p class="auth-subtitle" id="authSubtitle">Join World Investment Global today</p><input type="text" id="authUsername" placeholder="Username"><input type="password" id="authPassword" placeholder="Password"><input type="text" id="referralCode" placeholder="Referral Code (optional)"><button onclick="handleAuth()" id="authBtn">Create Account</button><div class="auth-divider">or</div><div class="auth-toggle"><span id="authToggleText">Already have an account?</span><a onclick="toggleAuthMode()" id="authToggleLink">Login</a></div></section>
 
-<!-- ====== AUTH SECTION ====== -->
-
-<section class="auth-section" id="auth">
-
-<div class="auth-icon">🔐</div>
-<h2 id="authTitle">Create Account</h2>
-<p class="auth-subtitle" id="authSubtitle">Join World Investment Global today</p>
-
-<input type="text" id="authUsername" placeholder="Username">
-<input type="password" id="authPassword" placeholder="Password">
-<input type="text" id="referralCode" placeholder="Referral Code (optional)">
-
-<button onclick="handleAuth()" id="authBtn">Create Account</button>
-
-<div class="auth-divider">or</div>
-
-<div class="auth-toggle">
-    <span id="authToggleText">Already have an account?</span>
-    <a onclick="toggleAuthMode()" id="authToggleLink">Login</a>
-</div>
-
-</section>
-
-<!-- Footer -->
-
-<footer>
-
-<p>
-© 2026 World Investment Global. All rights reserved.
-</p>
-
-</footer>
+<footer><p>© 2026 World Investment Global. All rights reserved.</p></footer>
 
 <script>
-
-/* ====== CONFIG ====== */
 const DEPOSIT_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSdgf5kQIpVJqSvYF10Tce3juLWfVIlkZaFG8gV6xtKtdrHthQ/viewform?usp=header";
+const WITHDRAW_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLScW6VGIwMu1lag6L_8UBwBzgrX3IO9c6ighgrYPoLWieg6wCg/viewform?usp=dialog";
 const INVESTMENT_DAYS = 15;
 const MIN_DEPOSIT = 22000;
 const MIN_PAYMENT_MINUTES = 3;
 const MAX_PAYMENT_MINUTES = 30;
 const PENDING_PROCESSING_MINUTES = 10;
+const MIN_WITHDRAW_MINUTES = 2;
+const MAX_WITHDRAW_MINUTES = 30;
 
-/* ====== STATE ====== */
 let selectedDepositAmount = 0;
 let selectedWithdrawType = "";
 let countdownInterval = null;
 
-/* ====== LOADER ====== */
+// ADMIN ACCOUNT
+const ADMIN_USERNAME = "abdullahi";
+const ADMIN_PASSWORD = "kunji";
+
+// Generate random backup code
+function generateBackupCode(){
+    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+    let code = '';
+    for(let i = 0; i < 6; i++){
+        code += chars.charAt(Math.floor(Math.random() * chars.length));
+    }
+    return code;
+}
+
+// Save backup code for user
+function saveBackupCode(username){
+    let code = generateBackupCode();
+    let backupCodes = JSON.parse(localStorage.getItem("wig_backupCodes") || "{}");
+    backupCodes[code] = username;
+    localStorage.setItem("wig_backupCodes", JSON.stringify(backupCodes));
+    localStorage.setItem("wig_backupCode_" + username, code);
+    return code;
+}
+
+// Get backup code for user
+function getBackupCode(username){
+    return localStorage.getItem("wig_backupCode_" + username);
+}
+
+// Show backup code modal
+function showBackupCode(){
+    let username = localStorage.getItem("wig_username");
+    let code = getBackupCode(username);
+    if(!code){
+        code = saveBackupCode(username);
+    }
+    document.getElementById("backupCodeDisplay").innerText = code;
+    document.getElementById("backupCodeModal").style.display = "flex";
+}
+
+function copyBackupCode(){
+    let code = document.getElementById("backupCodeDisplay").innerText;
+    navigator.clipboard.writeText(code);
+    alert("Backup code copied to clipboard! Save it somewhere safe.");
+}
+
+function closeBackupCodeModal(){
+    document.getElementById("backupCodeModal").style.display = "none";
+}
+
+function openRestoreModal(){
+    document.getElementById("restoreModal").style.display = "flex";
+}
+
+function closeRestoreModal(){
+    document.getElementById("restoreModal").style.display = "none";
+    document.getElementById("restoreCodeInput").value = "";
+}
+
+function restoreAccount(){
+    let restoreCode = document.getElementById("restoreCodeInput").value.trim().toUpperCase();
+    if(restoreCode.length !== 6){
+        alert("Please enter a valid 6-character backup code");
+        return;
+    }
+    
+    let backupCodes = JSON.parse(localStorage.getItem("wig_backupCodes") || "{}");
+    let username = backupCodes[restoreCode];
+    
+    if(!username){
+        alert("Invalid backup code. Please check and try again.");
+        return;
+    }
+    
+    let allUsers = JSON.parse(localStorage.getItem("wig_allUsers") || "{}");
+    if(!allUsers[username]){
+        alert("Account not found. Please contact support.");
+        return;
+    }
+    
+    // Restore the account
+    localStorage.setItem("wig_username", username);
+    localStorage.setItem("wig_password", allUsers[username].password);
+    localStorage.setItem("wig_loggedIn", "true");
+    
+    closeRestoreModal();
+    alert("Account restored successfully! Welcome back " + username);
+    location.reload();
+}
+
 window.onload = function(){
     setTimeout(() => {
         document.getElementById("loader").style.display = "none";
@@ -1682,27 +1326,81 @@ window.onload = function(){
         checkAutoLogin();
         updateHeaderButtons();
         checkPendingDepositCompletion();
+        checkMaturedInvestments();
         loadAllAccountsList();
+        setupAdminAccount();
     }, 2000);
+}
+
+// Check for matured investments and move to available balance
+function checkMaturedInvestments(){
+    let username = localStorage.getItem("wig_username");
+    if(!username) return;
+    
+    let hasInvestment = localStorage.getItem("wig_hasInvestment_" + username) === "true";
+    let isMature = localStorage.getItem("wig_isMature_" + username) === "true";
+    let status = localStorage.getItem("wig_status_" + username);
+    
+    if(hasInvestment && isMature && status === "COMPLETED"){
+        return;
+    }
+    
+    let startTime = parseInt(localStorage.getItem("wig_startTime_" + username) || "0");
+    if(startTime > 0){
+        let endTime = startTime + (INVESTMENT_DAYS * 24 * 60 * 60 * 1000);
+        let now = Date.now();
+        
+        if(now >= endTime){
+            let depositAmount = parseInt(localStorage.getItem("wig_depositAmount_" + username) || "0");
+            let profitRate = parseFloat(localStorage.getItem("wig_profitRateNum_" + username) || "0");
+            let profit = Math.floor(depositAmount * (profitRate / 100));
+            let totalReturn = depositAmount + profit;
+            
+            let currentAvailable = parseInt(localStorage.getItem("wig_available_" + username) || "0");
+            let currentProfit = parseInt(localStorage.getItem("wig_profit_" + username) || "0");
+            
+            localStorage.setItem("wig_profit_" + username, (currentProfit + profit).toString());
+            localStorage.setItem("wig_available_" + username, (currentAvailable + totalReturn).toString());
+            localStorage.setItem("wig_isMature_" + username, "true");
+            localStorage.setItem("wig_status_" + username, "COMPLETED");
+            
+            addTransaction("Investment Matured - Funds Available", totalReturn, "completed", null);
+            
+            updateDashboardData();
+            alert("✅ Your investment has matured! ₦" + formatNumber(totalReturn) + " has been added to your available balance. You can now withdraw.");
+        }
+    }
+}
+
+function setupAdminAccount(){
+    let allUsers = JSON.parse(localStorage.getItem("wig_allUsers") || "{}");
+    if(!allUsers[ADMIN_USERNAME]){
+        allUsers[ADMIN_USERNAME] = {
+            password: ADMIN_PASSWORD,
+            referredBy: null,
+            createdAt: new Date().toISOString(),
+            isAdmin: true
+        };
+        localStorage.setItem("wig_allUsers", JSON.stringify(allUsers));
+        initUserData(ADMIN_USERNAME);
+        saveBackupCode(ADMIN_USERNAME);
+    }
+}
+
+function isAdminUser(username){
+    return username === ADMIN_USERNAME;
 }
 
 function loadAllAccountsList(){
     let allUsers = JSON.parse(localStorage.getItem("wig_allUsers") || "{}");
     let accountList = document.getElementById("accountList");
-    
-    let accounts = Object.keys(allUsers).filter(username => username !== localStorage.getItem("wig_username"));
-    
+    let currentUser = localStorage.getItem("wig_username");
+    let accounts = Object.keys(allUsers).filter(username => username !== currentUser);
     if(accounts.length === 0){
         accountList.innerHTML = '<p style="color:#888; text-align:center;">No other accounts found</p>';
         return;
     }
-    
-    accountList.innerHTML = accounts.map(username => `
-        <div class="account-item" onclick="switchToAccount('${username}')">
-            <div class="account-name">${username}</div>
-            <button class="account-switch-btn">Switch</button>
-        </div>
-    `).join('');
+    accountList.innerHTML = accounts.map(username => `<div class="account-item" onclick="switchToAccount('${username}')"><div class="account-name">${username}${isAdminUser(username) ? ' 👑' : ''}</div><button class="account-switch-btn">Switch</button></div>`).join('');
 }
 
 function switchToAccount(username){
@@ -1725,23 +1423,33 @@ function closeAccountSwitcher(){
     document.getElementById("accountSwitcherModal").style.display = "none";
 }
 
+function updateHeaderButtons(){
+    let isLoggedIn = localStorage.getItem("wig_loggedIn") === "true";
+    if(isLoggedIn){
+        document.getElementById("headerAuthBtn").style.display = "none";
+        document.getElementById("headerLogoutBtn").style.display = "block";
+        document.getElementById("headerSwitchAccountBtn").style.display = "block";
+        document.getElementById("headerRestoreBtn").style.display = "none";
+    } else {
+        document.getElementById("headerAuthBtn").style.display = "block";
+        document.getElementById("headerLogoutBtn").style.display = "none";
+        document.getElementById("headerSwitchAccountBtn").style.display = "none";
+        document.getElementById("headerRestoreBtn").style.display = "inline-block";
+    }
+}
+
 function checkPendingDepositCompletion(){
     let username = localStorage.getItem("wig_username");
     if(!username) return;
-    
     let depositTime = localStorage.getItem("wig_depositTime_" + username);
     let status = localStorage.getItem("wig_status_" + username);
-    
     if(depositTime && status === "PROCESSING"){
         let elapsed = (Date.now() - parseInt(depositTime)) / 1000 / 60;
-        
         if(elapsed >= PENDING_PROCESSING_MINUTES){
             activateInvestment(username);
         } else {
             let remaining = (PENDING_PROCESSING_MINUTES - elapsed) * 60 * 1000;
-            setTimeout(() => {
-                activateInvestment(username);
-            }, remaining);
+            setTimeout(() => { activateInvestment(username); }, remaining);
         }
     }
 }
@@ -1749,13 +1457,10 @@ function checkPendingDepositCompletion(){
 function activateInvestment(username){
     let depositAmount = parseInt(localStorage.getItem("wig_pendingAmount_" + username) || "0");
     if(depositAmount === 0) return;
-    
     let weeklyRate = parseFloat(localStorage.getItem("wig_weeklyRate_" + username) || "12");
     let profit = Math.floor(depositAmount * (weeklyRate / 100));
     let totalReturn = depositAmount + profit;
-    
     let currentInvested = parseInt(localStorage.getItem("wig_invested_" + username) || "0");
-    
     localStorage.setItem("wig_depositAmount_" + username, depositAmount.toString());
     localStorage.setItem("wig_hasInvestment_" + username, "true");
     localStorage.setItem("wig_isMature_" + username, "false");
@@ -1765,30 +1470,20 @@ function activateInvestment(username){
     localStorage.setItem("wig_expectedReturn_" + username, totalReturn.toString());
     localStorage.setItem("wig_profitRate_" + username, weeklyRate + "%");
     localStorage.setItem("wig_profitRateNum_" + username, weeklyRate.toString());
-    
     let transactions = JSON.parse(localStorage.getItem("wig_transactions_" + username) || "[]");
     let pendingTx = transactions.find(t => t.type === "Deposit" && t.status === "processing");
-    if(pendingTx){
-        pendingTx.status = "completed";
-        localStorage.setItem("wig_transactions_" + username, JSON.stringify(transactions));
-    }
-    
+    if(pendingTx){ pendingTx.status = "completed"; localStorage.setItem("wig_transactions_" + username, JSON.stringify(transactions)); }
     addTransaction("Investment Activated", depositAmount, "completed", null);
-    
     let allUsers = JSON.parse(localStorage.getItem("wig_allUsers") || "{}");
-    if(allUsers[username] && allUsers[username].referredBy){
+    if(allUsers[username] && allUsers[username].referredBy && !isAdminUser(username)){
         let referrer = allUsers[username].referredBy;
-        if(referrer && referrer !== username){
-            addReferralEarningForUser(referrer, username, depositAmount);
-        }
+        if(referrer && referrer !== username && !isAdminUser(referrer)){ addReferralEarningForUser(referrer, username, depositAmount); }
     }
-    
     localStorage.removeItem("wig_depositTime_" + username);
     localStorage.removeItem("wig_pendingAmount_" + username);
     localStorage.removeItem("wig_weeklyRate_" + username);
-    
     if(localStorage.getItem("wig_username") === username){
-        loadUserData();
+        updateDashboardData();
         startCountdown();
         alert("✅ Your deposit of ₦" + formatNumber(depositAmount) + " has been confirmed and your investment is now ACTIVE! Your 15-day cycle starts now.");
     }
@@ -1797,7 +1492,7 @@ function activateInvestment(username){
 function checkUrlForReferral(){
     const urlParams = new URLSearchParams(window.location.search);
     const ref = urlParams.get('ref');
-    if(ref){
+    if(ref && ref !== ADMIN_USERNAME){
         localStorage.setItem("wig_pendingReferral", ref);
         if(document.getElementById("referralCode")){
             document.getElementById("referralCode").value = ref;
@@ -1806,50 +1501,34 @@ function checkUrlForReferral(){
     }
 }
 
-function updateHeaderButtons(){
-    let isLoggedIn = localStorage.getItem("wig_loggedIn") === "true";
-    if(isLoggedIn){
-        document.getElementById("headerAuthBtn").style.display = "none";
-        document.getElementById("headerLogoutBtn").style.display = "block";
-        document.getElementById("headerSwitchAccountBtn").style.display = "block";
-    } else {
-        document.getElementById("headerAuthBtn").style.display = "block";
-        document.getElementById("headerLogoutBtn").style.display = "none";
-        document.getElementById("headerSwitchAccountBtn").style.display = "none";
-    }
-}
-
-function logout(){
-    localStorage.setItem("wig_loggedIn", "false");
-    location.reload();
-}
-
 function checkAutoLogin(){
     let loggedIn = localStorage.getItem("wig_loggedIn");
     let currentUser = localStorage.getItem("wig_username");
-    if(loggedIn === "true" && currentUser){
-        showInvestorDashboard();
-    }
+    if(loggedIn === "true" && currentUser){ showInvestorDashboard(); }
 }
 
-function scrollToAuth(){
-    document.getElementById("auth").scrollIntoView({behavior:"smooth"});
-}
+function scrollToAuth(){ document.getElementById("auth").scrollIntoView({behavior:"smooth"}); }
 
 function updateDailyPerformance(){
     let today = Math.floor(Math.random() * 3) + 5;
     document.getElementById("todayPerformance").innerText = today + "%";
 }
 
+// UPDATED PERFORMANCE SYSTEM - More realistic!
 function updateWeeklyPerformance(){
-    let rand = Math.random();
+    let rand = Math.random() * 100;
     let weekly;
-    if(rand < 0.7){
-        weekly = Math.floor(Math.random() * 6) + 10;
+    
+    if(rand < 80){
+        weekly = Math.floor(Math.random() * 9) + 10;
+    } else if(rand < 95){
+        weekly = Math.floor(Math.random() * 4) + 10;
     } else {
-        weekly = Math.floor(Math.random() * 4) + 15;
+        weekly = Math.floor(Math.random() * 3) + 18;
     }
-    if(weekly > 18) weekly = 18;
+    
+    if(weekly > 20) weekly = 20;
+    
     document.getElementById("weeklyPerformance").innerText = weekly + "%";
     return weekly;
 }
@@ -1867,7 +1546,6 @@ function checkDailyUpdate(){
         if(savedDaily) document.getElementById("todayPerformance").innerText = savedDaily;
     }
 }
-
 function checkWeeklyUpdate(){
     let lastWeekly = localStorage.getItem("wig_lastWeekly");
     let now = Date.now();
@@ -1881,12 +1559,10 @@ function checkWeeklyUpdate(){
         if(savedWeekly) document.getElementById("weeklyPerformance").innerText = savedWeekly;
     }
 }
-
 checkDailyUpdate();
 checkWeeklyUpdate();
 
 let isLoginMode = false;
-
 function toggleAuthMode(){
     isLoginMode = !isLoginMode;
     let title = document.getElementById("authTitle");
@@ -1895,7 +1571,6 @@ function toggleAuthMode(){
     let toggleText = document.getElementById("authToggleText");
     let toggleLink = document.getElementById("authToggleLink");
     let referralInput = document.getElementById("referralCode");
-
     if(isLoginMode){
         title.innerText = "Welcome Back";
         subtitle.innerText = "Login to your account";
@@ -1919,98 +1594,62 @@ function toggleAuthMode(){
 function handleAuth(){
     let username = document.getElementById("authUsername").value.trim();
     let password = document.getElementById("authPassword").value.trim();
-
-    if(username == "" || password == ""){
-        alert("Please fill all fields");
-        return;
-    }
-
+    if(username == "" || password == ""){ alert("Please fill all fields"); return; }
     if(isLoginMode){
         let allUsers = JSON.parse(localStorage.getItem("wig_allUsers") || "{}");
-        
         if(allUsers[username] && allUsers[username].password === password){
             localStorage.setItem("wig_username", username);
             localStorage.setItem("wig_password", password);
             localStorage.setItem("wig_loggedIn", "true");
             updateHeaderButtons();
             showInvestorDashboard();
-        } else {
-            alert("Invalid Login Information");
-        }
+        } else { alert("Invalid Login Information"); }
     } else {
         let existingUsers = JSON.parse(localStorage.getItem("wig_allUsers") || "{}");
-        
-        if(existingUsers[username]){
-            alert("Username already exists! Please choose another.");
-            return;
-        }
-        
+        if(existingUsers[username]){ alert("Username already exists! Please choose another."); return; }
         let referralCode = document.getElementById("referralCode").value.trim();
         let referredBy = localStorage.getItem("wig_pendingReferral") || referralCode || null;
-        
-        existingUsers[username] = {
-            password: password,
-            referredBy: referredBy,
-            createdAt: new Date().toISOString()
-        };
-        
+        if(referredBy === ADMIN_USERNAME) referredBy = null;
+        existingUsers[username] = { password: password, referredBy: referredBy, createdAt: new Date().toISOString() };
         localStorage.setItem("wig_allUsers", JSON.stringify(existingUsers));
         localStorage.setItem("wig_username", username);
         localStorage.setItem("wig_password", password);
         localStorage.setItem("wig_loggedIn", "true");
-        
         initUserData(username);
-        
-        alert("Account Created Successfully! Welcome to your dashboard.");
+        saveBackupCode(username);
+        alert("Account Created Successfully! Your backup code is: " + getBackupCode(username) + " - Save this code to restore your account on any device!");
         updateHeaderButtons();
         showInvestorDashboard();
     }
 }
 
 function initUserData(username){
-    if(!localStorage.getItem("wig_transactions_" + username)){
-        localStorage.setItem("wig_transactions_" + username, JSON.stringify([]));
-    }
-    if(!localStorage.getItem("wig_referrals_" + username)){
-        localStorage.setItem("wig_referrals_" + username, JSON.stringify([]));
-    }
-    if(!localStorage.getItem("wig_referralEarnings_" + username)){
-        localStorage.setItem("wig_referralEarnings_" + username, "0");
-    }
-    if(!localStorage.getItem("wig_referralReinvest_" + username)){
-        localStorage.setItem("wig_referralReinvest_" + username, "0");
-    }
-    if(!localStorage.getItem("wig_available_" + username)){
-        localStorage.setItem("wig_available_" + username, "0");
-    }
-    if(!localStorage.getItem("wig_invested_" + username)){
-        localStorage.setItem("wig_invested_" + username, "0");
-    }
-    if(!localStorage.getItem("wig_profit_" + username)){
-        localStorage.setItem("wig_profit_" + username, "0");
-    }
-    if(!localStorage.getItem("wig_hasInvestment_" + username)){
-        localStorage.setItem("wig_hasInvestment_" + username, "false");
-    }
+    if(!localStorage.getItem("wig_transactions_" + username)) localStorage.setItem("wig_transactions_" + username, JSON.stringify([]));
+    if(!localStorage.getItem("wig_referrals_" + username)) localStorage.setItem("wig_referrals_" + username, JSON.stringify([]));
+    if(!localStorage.getItem("wig_referralEarnings_" + username)) localStorage.setItem("wig_referralEarnings_" + username, "0");
+    if(!localStorage.getItem("wig_referralReinvest_" + username)) localStorage.setItem("wig_referralReinvest_" + username, "0");
+    if(!localStorage.getItem("wig_available_" + username)) localStorage.setItem("wig_available_" + username, "0");
+    if(!localStorage.getItem("wig_invested_" + username)) localStorage.setItem("wig_invested_" + username, "0");
+    if(!localStorage.getItem("wig_profit_" + username)) localStorage.setItem("wig_profit_" + username, "0");
+    if(!localStorage.getItem("wig_hasInvestment_" + username)) localStorage.setItem("wig_hasInvestment_" + username, "false");
 }
 
 function showInvestorDashboard(){
     document.getElementById("auth").style.display = "none";
     document.getElementById("investorDashboard").style.display = "block";
     document.getElementById("investorDashboard").scrollIntoView({behavior:"smooth"});
-    
     let username = localStorage.getItem("wig_username");
-    document.getElementById("welcomeUser").innerText = username;
-    
-    loadUserData();
+    document.getElementById("welcomeUser").innerText = username + (isAdminUser(username) ? " (Admin)" : "");
+    updateDashboardData();
     startCountdown();
     loadTransactions();
     loadReferralData();
+    checkMaturedInvestments();
+    setInterval(() => { checkMaturedInvestments(); }, 60000);
 }
 
-function loadUserData(){
+function updateDashboardData(){
     let username = localStorage.getItem("wig_username");
-    
     let invested = parseInt(localStorage.getItem("wig_invested_" + username) || "0");
     let profit = parseInt(localStorage.getItem("wig_profit_" + username) || "0");
     let available = parseInt(localStorage.getItem("wig_available_" + username) || "0");
@@ -2018,66 +1657,76 @@ function loadUserData(){
     let hasInvestment = localStorage.getItem("wig_hasInvestment_" + username) === "true";
     let isMature = localStorage.getItem("wig_isMature_" + username) === "true";
     let status = localStorage.getItem("wig_status_" + username) || "";
-
     document.getElementById("totalInvested").innerText = "₦" + formatNumber(invested);
     document.getElementById("totalProfit").innerText = "₦" + formatNumber(profit);
     document.getElementById("availableBalance").innerText = "₦" + formatNumber(available);
     document.getElementById("referralBalance").innerText = "₦" + formatNumber(referralReinvest);
-
     let withdrawBtn = document.getElementById("withdrawBtn");
-
-    if(hasInvestment && status === "ACTIVE"){
-        document.getElementById("investmentStatus").style.display = "block";
-        document.getElementById("noInvestmentMsg").style.display = "none";
-
-        let depositAmount = parseInt(localStorage.getItem("wig_depositAmount_" + username) || "0");
-        let expectedReturn = parseInt(localStorage.getItem("wig_expectedReturn_" + username) || "0");
-        let profitRate = localStorage.getItem("wig_profitRate_" + username) || "0%";
-
-        document.getElementById("statusAmount").innerText = "₦" + formatNumber(depositAmount);
-        document.getElementById("statusReturn").innerText = "₦" + formatNumber(expectedReturn);
-        document.getElementById("statusRate").innerText = profitRate;
-
-        let statusEl = document.getElementById("statusText");
-        if(isMature){
-            statusEl.innerText = "COMPLETED";
-            statusEl.className = "value completed";
+    
+    if(isAdminUser(username)){
+        withdrawBtn.disabled = false;
+        if(hasInvestment && status === "ACTIVE"){
+            document.getElementById("investmentStatus").style.display = "block";
+            document.getElementById("noInvestmentMsg").style.display = "none";
+            let depositAmount = parseInt(localStorage.getItem("wig_depositAmount_" + username) || "0");
+            let expectedReturn = parseInt(localStorage.getItem("wig_expectedReturn_" + username) || "0");
+            let profitRate = localStorage.getItem("wig_profitRate_" + username) || "0%";
+            document.getElementById("statusAmount").innerText = "₦" + formatNumber(depositAmount);
+            document.getElementById("statusReturn").innerText = "₦" + formatNumber(expectedReturn);
+            document.getElementById("statusRate").innerText = profitRate;
+            document.getElementById("statusText").innerText = "ACTIVE";
+            document.getElementById("statusText").className = "value completed";
+        } else if(status === "PROCESSING"){
+            document.getElementById("investmentStatus").style.display = "block";
+            document.getElementById("noInvestmentMsg").style.display = "none";
+            document.getElementById("statusAmount").innerText = "₦" + formatNumber(parseInt(localStorage.getItem("wig_pendingAmount_" + username) || "0"));
+            document.getElementById("statusReturn").innerText = "₦" + formatNumber(parseInt(localStorage.getItem("wig_pendingAmount_" + username) || "0"));
+            document.getElementById("statusRate").innerText = "0%";
+            document.getElementById("statusText").innerText = "PROCESSING";
+            document.getElementById("statusText").className = "value processing";
+        } else {
+            document.getElementById("investmentStatus").style.display = "none";
+            document.getElementById("noInvestmentMsg").style.display = "block";
+        }
+    } else {
+        if(available > 0){
             withdrawBtn.disabled = false;
         } else {
-            statusEl.innerText = "ACTIVE";
-            statusEl.className = "value completed";
             withdrawBtn.disabled = true;
         }
-    } else if(status === "PROCESSING"){
-        document.getElementById("investmentStatus").style.display = "block";
-        document.getElementById("noInvestmentMsg").style.display = "none";
-        document.getElementById("statusAmount").innerText = "₦" + formatNumber(parseInt(localStorage.getItem("wig_pendingAmount_" + username) || "0"));
-        document.getElementById("statusReturn").innerText = "₦" + formatNumber(parseInt(localStorage.getItem("wig_pendingAmount_" + username) || "0"));
-        document.getElementById("statusRate").innerText = "0%";
-        document.getElementById("statusText").innerText = "PROCESSING";
-        document.getElementById("statusText").className = "value processing";
-        withdrawBtn.disabled = true;
-    } else {
-        document.getElementById("investmentStatus").style.display = "none";
-        document.getElementById("noInvestmentMsg").style.display = "block";
-        withdrawBtn.disabled = true;
+        
+        if(hasInvestment && status === "ACTIVE" && !isMature){
+            document.getElementById("investmentStatus").style.display = "block";
+            document.getElementById("noInvestmentMsg").style.display = "none";
+            let depositAmount = parseInt(localStorage.getItem("wig_depositAmount_" + username) || "0");
+            let expectedReturn = parseInt(localStorage.getItem("wig_expectedReturn_" + username) || "0");
+            let profitRate = localStorage.getItem("wig_profitRate_" + username) || "0%";
+            document.getElementById("statusAmount").innerText = "₦" + formatNumber(depositAmount);
+            document.getElementById("statusReturn").innerText = "₦" + formatNumber(expectedReturn);
+            document.getElementById("statusRate").innerText = profitRate;
+            document.getElementById("statusText").innerText = "ACTIVE";
+            document.getElementById("statusText").className = "value completed";
+        } else if(status === "PROCESSING"){
+            document.getElementById("investmentStatus").style.display = "block";
+            document.getElementById("noInvestmentMsg").style.display = "none";
+            document.getElementById("statusAmount").innerText = "₦" + formatNumber(parseInt(localStorage.getItem("wig_pendingAmount_" + username) || "0"));
+            document.getElementById("statusReturn").innerText = "₦" + formatNumber(parseInt(localStorage.getItem("wig_pendingAmount_" + username) || "0"));
+            document.getElementById("statusRate").innerText = "0%";
+            document.getElementById("statusText").innerText = "PROCESSING";
+            document.getElementById("statusText").className = "value processing";
+        } else {
+            document.getElementById("investmentStatus").style.display = "none";
+            document.getElementById("noInvestmentMsg").style.display = "block";
+        }
     }
-    
     document.getElementById("withdrawAvailable").innerText = "₦" + formatNumber(available);
 }
 
-function formatNumber(num){
-    return num.toLocaleString("en-NG");
-}
+function formatNumber(num){ return num.toLocaleString("en-NG"); }
 
 function switchTab(tabName){
-    document.querySelectorAll('.tab-pane').forEach(pane => {
-        pane.classList.remove('active');
-    });
-    document.querySelectorAll('.tab-btn').forEach(btn => {
-        btn.classList.remove('active');
-    });
-    
+    document.querySelectorAll('.tab-pane').forEach(pane => pane.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
     document.getElementById(tabName + 'Tab').classList.add('active');
     event.currentTarget.classList.add('active');
 }
@@ -2085,15 +1734,7 @@ function switchTab(tabName){
 function addTransaction(type, amount, status, txId){
     let username = localStorage.getItem("wig_username");
     let transactions = JSON.parse(localStorage.getItem("wig_transactions_" + username) || "[]");
-    
-    transactions.unshift({
-        date: new Date().toLocaleString(),
-        type: type,
-        amount: amount,
-        status: status,
-        transactionId: txId || generateTransactionId()
-    });
-    
+    transactions.unshift({ date: new Date().toLocaleString(), type: type, amount: amount, status: status, transactionId: txId || generateTransactionId() });
     localStorage.setItem("wig_transactions_" + username, JSON.stringify(transactions.slice(0, 50)));
     loadTransactions();
 }
@@ -2102,38 +1743,22 @@ function loadTransactions(){
     let username = localStorage.getItem("wig_username");
     let transactions = JSON.parse(localStorage.getItem("wig_transactions_" + username) || "[]");
     let tbody = document.getElementById("transactionsList");
-    
-    if(transactions.length === 0){
-        tbody.innerHTML = '<tr><td colspan="5" style="text-align:center;color:#888;">No transactions yet</td></tr>';
-        return;
-    }
-    
-    tbody.innerHTML = transactions.map(t => `
-        <tr>
-            <td>${t.date}</td>
-            <td>${t.type}</td>
-            <td>₦${formatNumber(t.amount)}</td>
-            <td><span class="status-badge ${t.status}">${t.status.toUpperCase()}</span></td>
-            <td>${t.transactionId}</td>
-        </tr>
-    `).join('');
+    if(transactions.length === 0){ tbody.innerHTML = '<tr><td colspan="5" style="text-align:center;color:#888;">No transactions yet</td></tr>'; return; }
+    tbody.innerHTML = transactions.map(t => `<tr><td>${t.date}</td><td>${t.type}</td><td>₦${formatNumber(t.amount)}</td><td><span class="status-badge ${t.status}">${t.status.toUpperCase()}</span></td><td>${t.transactionId}</td></tr>`).join('');
 }
 
-function generateTransactionId(){
-    return 'TXN' + Date.now() + Math.random().toString(36).substr(2, 8).toUpperCase();
-}
+function generateTransactionId(){ return 'TXN' + Date.now() + Math.random().toString(36).substr(2, 8).toUpperCase(); }
 
 function getReferralLink(){
     let username = localStorage.getItem("wig_username");
+    if(isAdminUser(username)) return "Admin account cannot earn referrals";
     let baseUrl = window.location.href.split('?')[0].split('#')[0];
     return `${baseUrl}?ref=${encodeURIComponent(username)}`;
 }
-
-function updateReferralLink(){
+function updateReferralLink(){ 
     let link = getReferralLink();
     document.getElementById("referralLink").value = link;
 }
-
 function copyReferralLink(){
     let link = document.getElementById("referralLink");
     link.select();
@@ -2142,130 +1767,75 @@ function copyReferralLink(){
 }
 
 function addReferralEarningForUser(referrer, referredUser, amount){
+    if(isAdminUser(referrer)) return;
     let referrals = JSON.parse(localStorage.getItem("wig_referrals_" + referrer) || "[]");
     let bonus = Math.floor(amount * 0.08);
-    
-    referrals.push({
-        user: referredUser,
-        amount: amount,
-        bonus: bonus,
-        date: new Date().toLocaleString()
-    });
-    
+    referrals.push({ user: referredUser, amount: amount, bonus: bonus, date: new Date().toLocaleString() });
     localStorage.setItem("wig_referrals_" + referrer, JSON.stringify(referrals));
-    
     let totalEarnings = parseInt(localStorage.getItem("wig_referralEarnings_" + referrer) || "0");
     let reinvestBalance = parseInt(localStorage.getItem("wig_referralReinvest_" + referrer) || "0");
-    
     localStorage.setItem("wig_referralEarnings_" + referrer, (totalEarnings + bonus).toString());
     localStorage.setItem("wig_referralReinvest_" + referrer, (reinvestBalance + bonus).toString());
-    
     let referrerTransactions = JSON.parse(localStorage.getItem("wig_transactions_" + referrer) || "[]");
-    referrerTransactions.unshift({
-        date: new Date().toLocaleString(),
-        type: "Referral Bonus from " + referredUser,
-        amount: bonus,
-        status: "completed",
-        transactionId: generateTransactionId()
-    });
+    referrerTransactions.unshift({ date: new Date().toLocaleString(), type: "Referral Bonus from " + referredUser, amount: bonus, status: "completed", transactionId: generateTransactionId() });
     localStorage.setItem("wig_transactions_" + referrer, JSON.stringify(referrerTransactions.slice(0, 50)));
 }
 
 function loadReferralData(){
     let username = localStorage.getItem("wig_username");
+    if(isAdminUser(username)){
+        document.getElementById("totalReferrals").innerText = "N/A";
+        document.getElementById("referralEarnings").innerText = "₦0";
+        document.getElementById("activeReferrals").innerText = "N/A";
+        document.getElementById("referralReinvestBalance").innerText = "₦0";
+        document.getElementById("referralsList").innerHTML = '<p style="color:#888;">Admin account does not earn referrals</p>';
+        updateReferralLink();
+        return;
+    }
     let referrals = JSON.parse(localStorage.getItem("wig_referrals_" + username) || "[]");
     let totalEarnings = parseInt(localStorage.getItem("wig_referralEarnings_" + username) || "0");
     let reinvestBalance = parseInt(localStorage.getItem("wig_referralReinvest_" + username) || "0");
-    
     document.getElementById("totalReferrals").innerText = referrals.length;
     document.getElementById("referralEarnings").innerText = "₦" + formatNumber(totalEarnings);
     document.getElementById("activeReferrals").innerText = referrals.filter(r => r.amount > 0).length;
     document.getElementById("referralReinvestBalance").innerText = "₦" + formatNumber(reinvestBalance);
-    
     let referralsDiv = document.getElementById("referralsList");
-    if(referrals.length === 0){
-        referralsDiv.innerHTML = '<p style="color:#888;">No referrals yet. Share your link to start earning!</p>';
-    } else {
-        referralsDiv.innerHTML = referrals.map(r => `
-            <div class="referral-item">
-                <div>
-                    <div class="referral-name">${r.user}</div>
-                    <div style="font-size:12px;color:#666;">${r.date}</div>
-                </div>
-                <div style="text-align:right;">
-                    <div>Invested: ₦${formatNumber(r.amount)}</div>
-                    <div class="referral-amount">Bonus: ₦${formatNumber(r.bonus)}</div>
-                </div>
-            </div>
-        `).join('');
-    }
-    
+    if(referrals.length === 0){ referralsDiv.innerHTML = '<p style="color:#888;">No referrals yet. Share your link to start earning!</p>'; }
+    else { referralsDiv.innerHTML = referrals.map(r => `<div class="referral-item"><div><div class="referral-name">${r.user}</div><div style="font-size:12px;color:#666;">${r.date}</div></div><div style="text-align:right;"><div>Invested: ₦${formatNumber(r.amount)}</div><div class="referral-amount">Bonus: ₦${formatNumber(r.bonus)}</div></div></div>`).join(''); }
     updateReferralLink();
 }
 
 function startCountdown(){
     if(countdownInterval) clearInterval(countdownInterval);
-
     let username = localStorage.getItem("wig_username");
     let hasInvestment = localStorage.getItem("wig_hasInvestment_" + username) === "true";
     let isMature = localStorage.getItem("wig_isMature_" + username) === "true";
     let status = localStorage.getItem("wig_status_" + username);
-
-    if(!hasInvestment || isMature || status !== "ACTIVE"){
-        document.getElementById("countdownBox").style.display = "none";
-        return;
-    }
-
+    if(!hasInvestment || isMature || status !== "ACTIVE"){ document.getElementById("countdownBox").style.display = "none"; return; }
     document.getElementById("countdownBox").style.display = "block";
-
     let startTime = parseInt(localStorage.getItem("wig_startTime_" + username) || "0");
     let endTime = startTime + (INVESTMENT_DAYS * 24 * 60 * 60 * 1000);
-
     function updateTimer(){
         let now = Date.now();
         let remaining = endTime - now;
-
         if(remaining <= 0){
-            let depositAmount = parseInt(localStorage.getItem("wig_depositAmount_" + username) || "0");
-            let profitRate = parseFloat(localStorage.getItem("wig_profitRateNum_" + username) || "0");
-            let profit = Math.floor(depositAmount * (profitRate / 100));
-            let totalReturn = depositAmount + profit;
-            
-            let currentProfit = parseInt(localStorage.getItem("wig_profit_" + username) || "0");
-            let currentAvailable = parseInt(localStorage.getItem("wig_available_" + username) || "0");
-
-            localStorage.setItem("wig_profit_" + username, (currentProfit + profit).toString());
-            localStorage.setItem("wig_available_" + username, (currentAvailable + totalReturn).toString());
-            localStorage.setItem("wig_expectedReturn_" + username, totalReturn.toString());
-            localStorage.setItem("wig_isMature_" + username, "true");
-            localStorage.setItem("wig_status_" + username, "COMPLETED");
-
-            loadUserData();
-
             document.getElementById("cdDays").innerText = "00";
             document.getElementById("cdHours").innerText = "00";
             document.getElementById("cdMinutes").innerText = "00";
             document.getElementById("cdSeconds").innerText = "00";
-
             clearInterval(countdownInterval);
-            
-            addTransaction("Investment Return", totalReturn, "completed", null);
-
-            alert("🎉 Congratulations! Your investment has matured! You can now withdraw your capital + profit.");
+            checkMaturedInvestments();
             return;
         }
-
         let days = Math.floor(remaining / (1000 * 60 * 60 * 24));
         let hours = Math.floor((remaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         let minutes = Math.floor((remaining % (1000 * 60 * 60)) / (1000 * 60));
         let seconds = Math.floor((remaining % (1000 * 60)) / 1000);
-
         document.getElementById("cdDays").innerText = String(days).padStart(2, "0");
         document.getElementById("cdHours").innerText = String(hours).padStart(2, "0");
         document.getElementById("cdMinutes").innerText = String(minutes).padStart(2, "0");
         document.getElementById("cdSeconds").innerText = String(seconds).padStart(2, "0");
     }
-
     updateTimer();
     countdownInterval = setInterval(updateTimer, 1000);
 }
@@ -2274,52 +1844,26 @@ function openDepositModal(){
     selectedDepositAmount = 0;
     document.getElementById("selectedAmountDisplay").innerText = "₦0";
     document.getElementById("customAmount").value = "";
-
-    let btns = document.querySelectorAll(".amount-btn");
-    btns.forEach(btn => btn.classList.remove("selected"));
-
+    document.querySelectorAll(".amount-btn").forEach(btn => btn.classList.remove("selected"));
     document.getElementById("depositModal").style.display = "flex";
 }
-
-function closeDepositModal(){
-    document.getElementById("depositModal").style.display = "none";
-}
-
+function closeDepositModal(){ document.getElementById("depositModal").style.display = "none"; }
 function selectAmount(amount){
     selectedDepositAmount = amount;
     document.getElementById("selectedAmountDisplay").innerText = "₦" + formatNumber(amount);
     document.getElementById("customAmount").value = "";
-
-    let btns = document.querySelectorAll(".amount-btn");
-    btns.forEach(btn => {
-        btn.classList.remove("selected");
-        if(btn.innerText.includes(formatNumber(amount))){
-            btn.classList.add("selected");
-        }
-    });
+    document.querySelectorAll(".amount-btn").forEach(btn => { btn.classList.remove("selected"); if(btn.innerText.includes(formatNumber(amount))){ btn.classList.add("selected"); } });
 }
 
 function confirmDeposit(){
     let custom = document.getElementById("customAmount").value;
-    if(custom && !selectedDepositAmount){
-        selectedDepositAmount = parseInt(custom);
-    }
-
-    if(!selectedDepositAmount || selectedDepositAmount < MIN_DEPOSIT){
-        alert("Minimum deposit is ₦22,000. Please select or enter a valid amount.");
-        return;
-    }
-
+    if(custom && !selectedDepositAmount){ selectedDepositAmount = parseInt(custom); }
+    if(!selectedDepositAmount || selectedDepositAmount < MIN_DEPOSIT){ alert("Minimum deposit is ₦22,000. Please select or enter a valid amount."); return; }
     let departureTime = Date.now();
     localStorage.setItem("wig_temp_departureTime", departureTime);
     localStorage.setItem("wig_temp_depositAmount", selectedDepositAmount);
-    
     closeDepositModal();
-    
     window.location.href = DEPOSIT_FORM_URL;
-    
-    alert("Please complete the Google Form to confirm your deposit. After completing, come back to this page.");
-    
     startSecretTimerCheck();
 }
 
@@ -2327,107 +1871,77 @@ function startSecretTimerCheck(){
     let checkInterval = setInterval(() => {
         let departureTime = localStorage.getItem("wig_temp_departureTime");
         let depositAmount = localStorage.getItem("wig_temp_depositAmount");
-        
-        if(!departureTime || !depositAmount){
-            clearInterval(checkInterval);
-            return;
-        }
-        
+        if(!departureTime || !depositAmount){ clearInterval(checkInterval); return; }
         let elapsedMinutes = (Date.now() - parseInt(departureTime)) / 1000 / 60;
-        
         if(document.hasFocus() && document.getElementById("investorDashboard").style.display === "block"){
-            
             if(elapsedMinutes < MIN_PAYMENT_MINUTES){
                 clearInterval(checkInterval);
                 localStorage.removeItem("wig_temp_departureTime");
                 localStorage.removeItem("wig_temp_depositAmount");
                 addTransaction("Deposit", parseInt(depositAmount), "declined", null);
-                alert("❌ Your deposit request has been DECLINED. Payment was completed too quickly. Please try again and allow 3-30 minutes for processing.");
-                loadUserData();
+                alert("Your deposit could not be processed. Please try again.");
+                updateDashboardData();
                 return;
             }
-            
             if(elapsedMinutes > MAX_PAYMENT_MINUTES){
                 clearInterval(checkInterval);
                 localStorage.removeItem("wig_temp_departureTime");
                 localStorage.removeItem("wig_temp_depositAmount");
                 addTransaction("Deposit", parseInt(depositAmount), "declined", null);
-                alert("❌ Your deposit request has been DECLINED. Payment took too long (over 30 minutes). Please try again.");
-                loadUserData();
+                alert("Your deposit could not be processed. Please try again.");
+                updateDashboardData();
                 return;
             }
-            
             clearInterval(checkInterval);
-            
             let username = localStorage.getItem("wig_username");
             let weeklyRate = parseFloat(document.getElementById("weeklyPerformance").innerText);
-            
             localStorage.setItem("wig_depositTime_" + username, Date.now().toString());
             localStorage.setItem("wig_pendingAmount_" + username, depositAmount);
             localStorage.setItem("wig_weeklyRate_" + username, weeklyRate.toString());
             localStorage.setItem("wig_status_" + username, "PROCESSING");
-            
             addTransaction("Deposit", parseInt(depositAmount), "processing", null);
-            
             localStorage.removeItem("wig_temp_departureTime");
             localStorage.removeItem("wig_temp_depositAmount");
-            
-            loadUserData();
-            
+            updateDashboardData();
             alert("✅ Deposit of ₦" + formatNumber(parseInt(depositAmount)) + " received! Your investment is now being processed. Balance will be added in 10 minutes.");
-            
-            setTimeout(() => {
-                activateInvestment(username);
-            }, PENDING_PROCESSING_MINUTES * 60 * 1000);
+            setTimeout(() => { activateInvestment(username); }, PENDING_PROCESSING_MINUTES * 60 * 1000);
         }
     }, 5000);
-    
     document.addEventListener("visibilitychange", function onVisibilityChange() {
         if(!document.hidden && localStorage.getItem("wig_temp_departureTime")){
             let departureTime = localStorage.getItem("wig_temp_departureTime");
             let depositAmount = localStorage.getItem("wig_temp_depositAmount");
             let elapsedMinutes = (Date.now() - parseInt(departureTime)) / 1000 / 60;
-            
             if(elapsedMinutes < MIN_PAYMENT_MINUTES){
                 clearInterval(checkInterval);
                 localStorage.removeItem("wig_temp_departureTime");
                 localStorage.removeItem("wig_temp_depositAmount");
                 addTransaction("Deposit", parseInt(depositAmount), "declined", null);
-                alert("❌ Your deposit request has been DECLINED. Payment was completed too quickly.");
-                loadUserData();
+                alert("Your deposit could not be processed. Please try again.");
+                updateDashboardData();
                 document.removeEventListener("visibilitychange", onVisibilityChange);
             } else if(elapsedMinutes > MAX_PAYMENT_MINUTES){
                 clearInterval(checkInterval);
                 localStorage.removeItem("wig_temp_departureTime");
                 localStorage.removeItem("wig_temp_depositAmount");
                 addTransaction("Deposit", parseInt(depositAmount), "declined", null);
-                alert("❌ Your deposit request has been DECLINED. Payment took too long.");
-                loadUserData();
+                alert("Your deposit could not be processed. Please try again.");
+                updateDashboardData();
                 document.removeEventListener("visibilitychange", onVisibilityChange);
             } else if(elapsedMinutes >= MIN_PAYMENT_MINUTES && elapsedMinutes <= MAX_PAYMENT_MINUTES){
                 clearInterval(checkInterval);
-                
                 let username = localStorage.getItem("wig_username");
                 let weeklyRate = parseFloat(document.getElementById("weeklyPerformance").innerText);
-                
                 localStorage.setItem("wig_depositTime_" + username, Date.now().toString());
                 localStorage.setItem("wig_pendingAmount_" + username, depositAmount);
                 localStorage.setItem("wig_weeklyRate_" + username, weeklyRate.toString());
                 localStorage.setItem("wig_status_" + username, "PROCESSING");
-                
                 addTransaction("Deposit", parseInt(depositAmount), "processing", null);
-                
                 localStorage.removeItem("wig_temp_departureTime");
                 localStorage.removeItem("wig_temp_depositAmount");
-                
-                loadUserData();
-                
+                updateDashboardData();
                 alert("✅ Deposit received! Your investment is being processed. Balance will be added in 10 minutes.");
-                
-                setTimeout(() => {
-                    activateInvestment(username);
-                }, PENDING_PROCESSING_MINUTES * 60 * 1000);
-                
+                setTimeout(() => { activateInvestment(username); }, PENDING_PROCESSING_MINUTES * 60 * 1000);
                 document.removeEventListener("visibilitychange", onVisibilityChange);
             }
         }
@@ -2436,84 +1950,219 @@ function startSecretTimerCheck(){
 
 function openWithdrawModal(){
     let username = localStorage.getItem("wig_username");
-    let isMature = localStorage.getItem("wig_isMature_" + username) === "true";
-    if(!isMature){
-        alert("Your investment is still active. You can only withdraw after the 15-day cycle is complete.");
+    let available = parseInt(localStorage.getItem("wig_available_" + username) || "0");
+    
+    if(!isAdminUser(username) && available <= 0){
+        alert("No funds available for withdrawal.");
         return;
     }
-
-    let available = parseInt(localStorage.getItem("wig_available_" + username) || "0");
+    
     document.getElementById("withdrawAvailable").innerText = "₦" + formatNumber(available);
-
     selectedWithdrawType = "";
-    let opts = document.querySelectorAll(".withdraw-option");
-    opts.forEach(opt => opt.classList.remove("selected"));
-
+    document.querySelectorAll(".withdraw-option").forEach(opt => opt.classList.remove("selected"));
     document.getElementById("withdrawModal").style.display = "flex";
 }
 
-function closeWithdrawModal(){
-    document.getElementById("withdrawModal").style.display = "none";
-}
+function closeWithdrawModal(){ document.getElementById("withdrawModal").style.display = "none"; }
 
 function selectWithdraw(type){
     selectedWithdrawType = type;
-    let opts = document.querySelectorAll(".withdraw-option");
-    opts.forEach(opt => opt.classList.remove("selected"));
+    document.querySelectorAll(".withdraw-option").forEach(opt => opt.classList.remove("selected"));
     event.currentTarget.classList.add("selected");
 }
 
-function confirmWithdrawal(){
+function processWithdrawRequest(){
     let username = localStorage.getItem("wig_username");
-    if(!selectedWithdrawType){
-        alert("Please select a withdrawal option.");
+    if(!selectedWithdrawType){ alert("Please select a withdrawal option."); return; }
+    
+    let available = parseInt(localStorage.getItem("wig_available_" + username) || "0");
+    
+    if(available <= 0 && !isAdminUser(username)){
+        alert("No funds available for withdrawal.");
         return;
     }
-
-    let depositAmount = parseInt(localStorage.getItem("wig_depositAmount_" + username) || "0");
-    let profit = parseInt(localStorage.getItem("wig_profit_" + username) || "0");
-    let available = parseInt(localStorage.getItem("wig_available_" + username) || "0");
-    let withdrawAmount = 0;
-
-    if(selectedWithdrawType === "capital"){
-        withdrawAmount = depositAmount;
-    } else if(selectedWithdrawType === "profit"){
-        withdrawAmount = profit;
-    } else if(selectedWithdrawType === "all"){
-        withdrawAmount = available;
-    }
     
-    let newInvested = parseInt(localStorage.getItem("wig_invested_" + username) || "0");
-    let newProfit = parseInt(localStorage.getItem("wig_profit_" + username) || "0");
-    let newAvailable = parseInt(localStorage.getItem("wig_available_" + username) || "0");
-    
-    if(selectedWithdrawType === "capital"){
-        newInvested -= depositAmount;
-        newAvailable -= depositAmount;
-    } else if(selectedWithdrawType === "profit"){
-        newProfit -= profit;
-        newAvailable -= profit;
-    } else if(selectedWithdrawType === "all"){
-        newInvested -= depositAmount;
-        newProfit -= profit;
-        newAvailable -= available;
-    }
-    
-    localStorage.setItem("wig_invested_" + username, Math.max(0, newInvested).toString());
-    localStorage.setItem("wig_profit_" + username, Math.max(0, newProfit).toString());
-    localStorage.setItem("wig_available_" + username, Math.max(0, newAvailable).toString());
-    localStorage.setItem("wig_hasInvestment_" + username, "false");
-    localStorage.setItem("wig_isMature_" + username, "false");
-    localStorage.setItem("wig_status_" + username, "");
-    localStorage.setItem("wig_depositAmount_" + username, "0");
-    localStorage.setItem("wig_expectedReturn_" + username, "0");
-
     closeWithdrawModal();
-    loadUserData();
     
-    addTransaction("Withdrawal Request", withdrawAmount, "pending", null);
+    if(isAdminUser(username)){
+        if(selectedWithdrawType === "profit"){
+            let profitAmount = available;
+            let newAvailable = available - profitAmount;
+            localStorage.setItem("wig_available_" + username, newAvailable.toString());
+            addTransaction("Admin Withdrawal - Profit Only", profitAmount, "completed", null);
+            alert("Admin withdrawal processed! ₦" + formatNumber(profitAmount) + " withdrawn.");
+        } else {
+            localStorage.setItem("wig_available_" + username, "0");
+            localStorage.setItem("wig_hasInvestment_" + username, "false");
+            localStorage.setItem("wig_isMature_" + username, "false");
+            localStorage.setItem("wig_status_" + username, "");
+            localStorage.setItem("wig_depositAmount_" + username, "0");
+            addTransaction("Admin Withdrawal - Full Amount", available, "completed", null);
+            alert("Admin full withdrawal processed! All funds withdrawn.");
+        }
+        updateDashboardData();
+        return;
+    }
+    
+    let departureTime = Date.now();
+    localStorage.setItem("wig_withdrawTemp_departureTime", departureTime);
+    localStorage.setItem("wig_withdrawTemp_amount", available);
+    localStorage.setItem("wig_withdrawTemp_type", selectedWithdrawType);
+    localStorage.setItem("wig_withdrawTemp_username", username);
+    
+    let formUrl = WITHDRAW_FORM_URL;
+    if(selectedWithdrawType === "profit"){ 
+        formUrl += "&entry.1234567890=Profit+Only"; 
+    } else { 
+        formUrl += "&entry.1234567890=Capital+Profit"; 
+    }
+    window.location.href = formUrl;
+    
+    startSecretWithdrawTimerCheck();
+}
 
-    alert("Withdrawal request submitted for ₦" + formatNumber(withdrawAmount) + "! Our team will process your request within 24-48 hours.");
+function startSecretWithdrawTimerCheck(){
+    let checkInterval = setInterval(() => {
+        let departureTime = localStorage.getItem("wig_withdrawTemp_departureTime");
+        let withdrawAmount = localStorage.getItem("wig_withdrawTemp_amount");
+        let withdrawType = localStorage.getItem("wig_withdrawTemp_type");
+        let username = localStorage.getItem("wig_withdrawTemp_username");
+        
+        if(!departureTime || !withdrawAmount || !username){
+            clearInterval(checkInterval);
+            return;
+        }
+        
+        let elapsedMinutes = (Date.now() - parseInt(departureTime)) / 1000 / 60;
+        
+        if(document.hasFocus() && document.getElementById("investorDashboard").style.display === "block"){
+            if(elapsedMinutes < MIN_WITHDRAW_MINUTES){
+                clearInterval(checkInterval);
+                localStorage.removeItem("wig_withdrawTemp_departureTime");
+                localStorage.removeItem("wig_withdrawTemp_amount");
+                localStorage.removeItem("wig_withdrawTemp_type");
+                localStorage.removeItem("wig_withdrawTemp_username");
+                addTransaction("Withdrawal Request", parseInt(withdrawAmount), "declined", null);
+                alert("Your withdrawal could not be processed. Please try again.");
+                updateDashboardData();
+                return;
+            }
+            
+            if(elapsedMinutes > MAX_WITHDRAW_MINUTES){
+                clearInterval(checkInterval);
+                localStorage.removeItem("wig_withdrawTemp_departureTime");
+                localStorage.removeItem("wig_withdrawTemp_amount");
+                localStorage.removeItem("wig_withdrawTemp_type");
+                localStorage.removeItem("wig_withdrawTemp_username");
+                addTransaction("Withdrawal Request", parseInt(withdrawAmount), "declined", null);
+                alert("Your withdrawal could not be processed. Please try again.");
+                updateDashboardData();
+                return;
+            }
+            
+            clearInterval(checkInterval);
+            
+            let currentAvailable = parseInt(localStorage.getItem("wig_available_" + username) || "0");
+            let withdrawAmt = parseInt(withdrawAmount);
+            
+            if(currentAvailable >= withdrawAmt){
+                if(withdrawType === "profit"){
+                    let newAvailable = currentAvailable - withdrawAmt;
+                    localStorage.setItem("wig_available_" + username, newAvailable.toString());
+                    addTransaction("Withdrawal - Profit Only", withdrawAmt, "completed", null);
+                    alert("✅ Withdrawal of ₦" + formatNumber(withdrawAmt) + " processed! Funds will be sent to your bank account within 24-48 hours.");
+                } else {
+                    localStorage.setItem("wig_available_" + username, "0");
+                    localStorage.setItem("wig_hasInvestment_" + username, "false");
+                    localStorage.setItem("wig_isMature_" + username, "false");
+                    localStorage.setItem("wig_status_" + username, "");
+                    localStorage.setItem("wig_depositAmount_" + username, "0");
+                    localStorage.setItem("wig_invested_" + username, "0");
+                    addTransaction("Withdrawal - Capital + Profit", withdrawAmt, "completed", null);
+                    alert("✅ Full withdrawal of ₦" + formatNumber(withdrawAmt) + " processed! Funds will be sent to your bank account within 24-48 hours.");
+                }
+            } else {
+                addTransaction("Withdrawal Request", withdrawAmt, "declined", null);
+                alert("Your withdrawal could not be processed. Insufficient funds.");
+            }
+            
+            localStorage.removeItem("wig_withdrawTemp_departureTime");
+            localStorage.removeItem("wig_withdrawTemp_amount");
+            localStorage.removeItem("wig_withdrawTemp_type");
+            localStorage.removeItem("wig_withdrawTemp_username");
+            updateDashboardData();
+        }
+    }, 5000);
+    
+    document.addEventListener("visibilitychange", function onVisibilityChange() {
+        if(!document.hidden && localStorage.getItem("wig_withdrawTemp_departureTime")){
+            let departureTime = localStorage.getItem("wig_withdrawTemp_departureTime");
+            let withdrawAmount = localStorage.getItem("wig_withdrawTemp_amount");
+            let withdrawType = localStorage.getItem("wig_withdrawTemp_type");
+            let username = localStorage.getItem("wig_withdrawTemp_username");
+            let elapsedMinutes = (Date.now() - parseInt(departureTime)) / 1000 / 60;
+            
+            if(elapsedMinutes < MIN_WITHDRAW_MINUTES){
+                clearInterval(checkInterval);
+                localStorage.removeItem("wig_withdrawTemp_departureTime");
+                localStorage.removeItem("wig_withdrawTemp_amount");
+                localStorage.removeItem("wig_withdrawTemp_type");
+                localStorage.removeItem("wig_withdrawTemp_username");
+                addTransaction("Withdrawal Request", parseInt(withdrawAmount), "declined", null);
+                alert("Your withdrawal could not be processed. Please try again.");
+                updateDashboardData();
+                document.removeEventListener("visibilitychange", onVisibilityChange);
+            } else if(elapsedMinutes > MAX_WITHDRAW_MINUTES){
+                clearInterval(checkInterval);
+                localStorage.removeItem("wig_withdrawTemp_departureTime");
+                localStorage.removeItem("wig_withdrawTemp_amount");
+                localStorage.removeItem("wig_withdrawTemp_type");
+                localStorage.removeItem("wig_withdrawTemp_username");
+                addTransaction("Withdrawal Request", parseInt(withdrawAmount), "declined", null);
+                alert("Your withdrawal could not be processed. Please try again.");
+                updateDashboardData();
+                document.removeEventListener("visibilitychange", onVisibilityChange);
+            } else if(elapsedMinutes >= MIN_WITHDRAW_MINUTES && elapsedMinutes <= MAX_WITHDRAW_MINUTES){
+                clearInterval(checkInterval);
+                
+                let currentAvailable = parseInt(localStorage.getItem("wig_available_" + username) || "0");
+                let withdrawAmt = parseInt(withdrawAmount);
+                
+                if(currentAvailable >= withdrawAmt){
+                    if(withdrawType === "profit"){
+                        let newAvailable = currentAvailable - withdrawAmt;
+                        localStorage.setItem("wig_available_" + username, newAvailable.toString());
+                        addTransaction("Withdrawal - Profit Only", withdrawAmt, "completed", null);
+                        alert("✅ Withdrawal of ₦" + formatNumber(withdrawAmt) + " processed! Funds will be sent to your bank account within 24-48 hours.");
+                    } else {
+                        localStorage.setItem("wig_available_" + username, "0");
+                        localStorage.setItem("wig_hasInvestment_" + username, "false");
+                        localStorage.setItem("wig_isMature_" + username, "false");
+                        localStorage.setItem("wig_status_" + username, "");
+                        localStorage.setItem("wig_depositAmount_" + username, "0");
+                        localStorage.setItem("wig_invested_" + username, "0");
+                        addTransaction("Withdrawal - Capital + Profit", withdrawAmt, "completed", null);
+                        alert("✅ Full withdrawal of ₦" + formatNumber(withdrawAmt) + " processed! Funds will be sent to your bank account within 24-48 hours.");
+                    }
+                } else {
+                    addTransaction("Withdrawal Request", withdrawAmt, "declined", null);
+                    alert("Your withdrawal could not be processed. Insufficient funds.");
+                }
+                
+                localStorage.removeItem("wig_withdrawTemp_departureTime");
+                localStorage.removeItem("wig_withdrawTemp_amount");
+                localStorage.removeItem("wig_withdrawTemp_type");
+                localStorage.removeItem("wig_withdrawTemp_username");
+                updateDashboardData();
+                document.removeEventListener("visibilitychange", onVisibilityChange);
+            }
+        }
+    });
+}
+
+function logout(){
+    localStorage.setItem("wig_loggedIn", "false");
+    location.reload();
 }
 
 document.getElementById("customAmount").addEventListener("input", function(){
@@ -2521,12 +2170,9 @@ document.getElementById("customAmount").addEventListener("input", function(){
     if(val && val >= MIN_DEPOSIT){
         selectedDepositAmount = val;
         document.getElementById("selectedAmountDisplay").innerText = "₦" + formatNumber(val);
-        let btns = document.querySelectorAll(".amount-btn");
-        btns.forEach(btn => btn.classList.remove("selected"));
+        document.querySelectorAll(".amount-btn").forEach(btn => btn.classList.remove("selected"));
     }
 });
-
 </script>
-
 </body>
 </html>

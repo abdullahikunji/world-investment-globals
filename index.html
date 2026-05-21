@@ -89,11 +89,11 @@ header{
 .switch-account-btn:hover{
     background:#2563eb;
 }
-.restore-code-btn{
+.restore-btn{
     background:#10b981;
     color:white;
 }
-.restore-code-btn:hover{
+.restore-btn:hover{
     background:#059669;
 }
 .hero{
@@ -440,6 +440,14 @@ header{
     cursor:not-allowed;
     transform:none;
     box-shadow:none;
+}
+.backup-btn{
+    background:#10b981;
+    color:white;
+}
+.backup-btn:hover{
+    background:#059669;
+    transform:translateY(-3px);
 }
 .investment-status{
     background:#1e293b;
@@ -1028,37 +1036,6 @@ footer{
         gap:5px;
     }
 }
-/* Restore Code Modal */
-.restore-modal .modal-box{
-    text-align:center;
-}
-.restore-code-display{
-    background:#1e293b;
-    padding:20px;
-    border-radius:15px;
-    margin:20px 0;
-    font-size:32px;
-    font-weight:bold;
-    letter-spacing:3px;
-    color:gold;
-    font-family:monospace;
-}
-.restore-input{
-    width:100%;
-    padding:15px;
-    background:#1e293b;
-    border:2px solid #333;
-    border-radius:12px;
-    color:white;
-    font-size:18px;
-    text-align:center;
-    letter-spacing:2px;
-    margin:20px 0;
-}
-.restore-input:focus{
-    border-color:gold;
-    outline:none;
-}
 </style>
 </head>
 <body>
@@ -1082,7 +1059,7 @@ footer{
     </div>
     <div class="header-buttons">
         <button id="headerAuthBtn" onclick="scrollToAuth()" class="get-started-btn">Get Started</button>
-        <button id="headerRestoreBtn" onclick="openRestoreModal()" class="restore-code-btn" style="display:inline-block;">🔑 Restore Account</button>
+        <button id="headerRestoreBtn" onclick="restoreAccountWithCode()" class="restore-btn">🔑 Restore Account</button>
         <button id="headerSwitchAccountBtn" onclick="openAccountSwitcher()" class="switch-account-btn" style="display:none;">Switch Account</button>
         <button id="headerLogoutBtn" onclick="logout()" class="logout-btn" style="display:none;">Logout</button>
     </div>
@@ -1153,7 +1130,7 @@ footer{
         <div class="action-buttons">
             <button class="action-btn deposit-btn" onclick="openDepositModal()">💳 Deposit & Invest</button>
             <button class="action-btn withdraw-btn" id="withdrawBtn" onclick="openWithdrawModal()" disabled>🏦 Withdraw Funds</button>
-            <button class="action-btn restore-code-btn" onclick="showBackupCode()">🔐 Show Backup Code</button>
+            <button class="action-btn backup-btn" onclick="showMyBackupCode()">🔐 Get Backup Code</button>
         </div>
         <div class="investment-status" id="investmentStatus" style="display:none;">
             <h3>📋 Active Investment Status</h3>
@@ -1181,28 +1158,6 @@ footer{
         <div id="referralEarningsList"><h4 style="color:gold; margin:20px 0 10px;">📊 Referral Earnings History</h4><div id="referralsList"><p style="color:#888;">No referrals yet. Share your link to start earning!</p></div></div>
     </div>
 </section>
-
-<!-- Restore Code Modal -->
-<div class="modal-overlay" id="restoreModal">
-<div class="modal-box restore-modal">
-    <h3>🔐 Restore Account</h3>
-    <p class="modal-sub">Enter your backup code to restore your account</p>
-    <input type="text" id="restoreCodeInput" class="restore-input" placeholder="Enter 6-character code" maxlength="6" style="text-transform:uppercase">
-    <button onclick="restoreAccount()">Restore My Account</button>
-    <div class="modal-close" onclick="closeRestoreModal()">Cancel</div>
-</div>
-</div>
-
-<!-- Backup Code Modal -->
-<div class="modal-overlay" id="backupCodeModal">
-<div class="modal-box restore-modal">
-    <h3>🔐 Your Backup Code</h3>
-    <p class="modal-sub">Save this code securely! You can use it to restore your account on any device.</p>
-    <div class="restore-code-display" id="backupCodeDisplay">XXXXXX</div>
-    <button onclick="copyBackupCode()">📋 Copy Code</button>
-    <div class="modal-close" onclick="closeBackupCodeModal()">Close</div>
-</div>
-</div>
 
 <div class="modal-overlay" id="depositModal"><div class="modal-box"><h3>💳 Deposit & Invest</h3><p class="modal-sub">Select your investment amount (Minimum ₦22,000)</p><div class="amount-grid"><button class="amount-btn" onclick="selectAmount(22000)">₦22,000</button><button class="amount-btn" onclick="selectAmount(55000)">₦55,000</button><button class="amount-btn" onclick="selectAmount(110000)">₦110,000</button><button class="amount-btn" onclick="selectAmount(220000)">₦220,000</button><button class="amount-btn" onclick="selectAmount(550000)">₦550,000</button><button class="amount-btn" onclick="selectAmount(1100000)">₦1,100,000</button></div><input type="number" class="custom-amount" id="customAmount" placeholder="Or enter custom amount (₦)" min="22000"><p style="text-align:center;color:#888;font-size:13px;margin-bottom:15px;">Selected: <strong style="color:gold;" id="selectedAmountDisplay">₦0</strong></p><button onclick="confirmDeposit()">Proceed to Payment</button><div class="modal-close" onclick="closeDepositModal()">Cancel</div></div></div>
 
@@ -1233,91 +1188,101 @@ let countdownInterval = null;
 const ADMIN_USERNAME = "abdullahi";
 const ADMIN_PASSWORD = "kunji";
 
-// Generate random backup code
-function generateBackupCode(){
-    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-    let code = '';
-    for(let i = 0; i < 6; i++){
-        code += chars.charAt(Math.floor(Math.random() * chars.length));
-    }
+// ========== BACKUP & RESTORE SYSTEM (WORKS ON ANY DEVICE) ==========
+
+// Generate backup code with ALL account data
+function generateBackupCode(username){
+    // Collect ALL user data
+    let userData = {
+        username: username,
+        password: localStorage.getItem("wig_password"),
+        invested: localStorage.getItem("wig_invested_" + username) || "0",
+        profit: localStorage.getItem("wig_profit_" + username) || "0",
+        available: localStorage.getItem("wig_available_" + username) || "0",
+        referralEarnings: localStorage.getItem("wig_referralEarnings_" + username) || "0",
+        referralReinvest: localStorage.getItem("wig_referralReinvest_" + username) || "0",
+        hasInvestment: localStorage.getItem("wig_hasInvestment_" + username) || "false",
+        isMature: localStorage.getItem("wig_isMature_" + username) || "false",
+        status: localStorage.getItem("wig_status_" + username) || "",
+        depositAmount: localStorage.getItem("wig_depositAmount_" + username) || "0",
+        expectedReturn: localStorage.getItem("wig_expectedReturn_" + username) || "0",
+        profitRate: localStorage.getItem("wig_profitRate_" + username) || "0%",
+        profitRateNum: localStorage.getItem("wig_profitRateNum_" + username) || "0",
+        startTime: localStorage.getItem("wig_startTime_" + username) || "0",
+        transactions: localStorage.getItem("wig_transactions_" + username) || "[]",
+        referrals: localStorage.getItem("wig_referrals_" + username) || "[]"
+    };
+    
+    // Generate random 6-character code
+    let code = Math.random().toString(36).substring(2, 8).toUpperCase();
+    
+    // Save the FULL user data with the code
+    let backups = JSON.parse(localStorage.getItem("wig_full_backups") || "{}");
+    backups[code] = userData;
+    localStorage.setItem("wig_full_backups", JSON.stringify(backups));
+    localStorage.setItem("wig_code_" + username, code);
+    
     return code;
 }
 
-// Save backup code for user
-function saveBackupCode(username){
-    let code = generateBackupCode();
-    let backupCodes = JSON.parse(localStorage.getItem("wig_backupCodes") || "{}");
-    backupCodes[code] = username;
-    localStorage.setItem("wig_backupCodes", JSON.stringify(backupCodes));
-    localStorage.setItem("wig_backupCode_" + username, code);
-    return code;
-}
-
-// Get backup code for user
-function getBackupCode(username){
-    return localStorage.getItem("wig_backupCode_" + username);
-}
-
-// Show backup code modal
-function showBackupCode(){
+// Show backup code to user
+function showMyBackupCode(){
     let username = localStorage.getItem("wig_username");
-    let code = getBackupCode(username);
+    let code = localStorage.getItem("wig_code_" + username);
     if(!code){
-        code = saveBackupCode(username);
+        code = generateBackupCode(username);
     }
-    document.getElementById("backupCodeDisplay").innerText = code;
-    document.getElementById("backupCodeModal").style.display = "flex";
+    alert("🔐 YOUR BACKUP CODE: " + code + "\n\n⚠️ SAVE THIS CODE! ⚠️\n\nYou can use it to restore your account on any device with ALL your data (balance, investments, transactions).");
 }
 
-function copyBackupCode(){
-    let code = document.getElementById("backupCodeDisplay").innerText;
-    navigator.clipboard.writeText(code);
-    alert("Backup code copied to clipboard! Save it somewhere safe.");
-}
-
-function closeBackupCodeModal(){
-    document.getElementById("backupCodeModal").style.display = "none";
-}
-
-function openRestoreModal(){
-    document.getElementById("restoreModal").style.display = "flex";
-}
-
-function closeRestoreModal(){
-    document.getElementById("restoreModal").style.display = "none";
-    document.getElementById("restoreCodeInput").value = "";
-}
-
-function restoreAccount(){
-    let restoreCode = document.getElementById("restoreCodeInput").value.trim().toUpperCase();
-    if(restoreCode.length !== 6){
-        alert("Please enter a valid 6-character backup code");
-        return;
+// Restore account using code - WORKS ON ANY DEVICE!
+function restoreAccountWithCode(){
+    let code = prompt("Enter your 6-character backup code:").toUpperCase().trim();
+    if(!code) return;
+    
+    let backups = JSON.parse(localStorage.getItem("wig_full_backups") || "{}");
+    let userData = backups[code];
+    
+    if(userData){
+        let username = userData.username;
+        
+        // Save user to allUsers list
+        let allUsers = JSON.parse(localStorage.getItem("wig_allUsers") || "{}");
+        allUsers[username] = {
+            password: userData.password,
+            referredBy: null,
+            createdAt: new Date().toISOString()
+        };
+        localStorage.setItem("wig_allUsers", JSON.stringify(allUsers));
+        
+        // Restore ALL user data
+        localStorage.setItem("wig_username", username);
+        localStorage.setItem("wig_password", userData.password);
+        localStorage.setItem("wig_loggedIn", "true");
+        localStorage.setItem("wig_invested_" + username, userData.invested);
+        localStorage.setItem("wig_profit_" + username, userData.profit);
+        localStorage.setItem("wig_available_" + username, userData.available);
+        localStorage.setItem("wig_referralEarnings_" + username, userData.referralEarnings);
+        localStorage.setItem("wig_referralReinvest_" + username, userData.referralReinvest);
+        localStorage.setItem("wig_hasInvestment_" + username, userData.hasInvestment);
+        localStorage.setItem("wig_isMature_" + username, userData.isMature);
+        localStorage.setItem("wig_status_" + username, userData.status);
+        localStorage.setItem("wig_depositAmount_" + username, userData.depositAmount);
+        localStorage.setItem("wig_expectedReturn_" + username, userData.expectedReturn);
+        localStorage.setItem("wig_profitRate_" + username, userData.profitRate);
+        localStorage.setItem("wig_profitRateNum_" + username, userData.profitRateNum);
+        localStorage.setItem("wig_startTime_" + username, userData.startTime);
+        localStorage.setItem("wig_transactions_" + username, userData.transactions);
+        localStorage.setItem("wig_referrals_" + username, userData.referrals);
+        
+        alert("✅ Account restored successfully!\n\nWelcome back " + username + "!\nYour balance: ₦" + parseInt(userData.available).toLocaleString());
+        location.reload();
+    } else {
+        alert("❌ Invalid backup code! Please check and try again.");
     }
-    
-    let backupCodes = JSON.parse(localStorage.getItem("wig_backupCodes") || "{}");
-    let username = backupCodes[restoreCode];
-    
-    if(!username){
-        alert("Invalid backup code. Please check and try again.");
-        return;
-    }
-    
-    let allUsers = JSON.parse(localStorage.getItem("wig_allUsers") || "{}");
-    if(!allUsers[username]){
-        alert("Account not found. Please contact support.");
-        return;
-    }
-    
-    // Restore the account
-    localStorage.setItem("wig_username", username);
-    localStorage.setItem("wig_password", allUsers[username].password);
-    localStorage.setItem("wig_loggedIn", "true");
-    
-    closeRestoreModal();
-    alert("Account restored successfully! Welcome back " + username);
-    location.reload();
 }
+
+// ========== END BACKUP SYSTEM ==========
 
 window.onload = function(){
     setTimeout(() => {
@@ -1332,7 +1297,6 @@ window.onload = function(){
     }, 2000);
 }
 
-// Check for matured investments and move to available balance
 function checkMaturedInvestments(){
     let username = localStorage.getItem("wig_username");
     if(!username) return;
@@ -1383,7 +1347,7 @@ function setupAdminAccount(){
         };
         localStorage.setItem("wig_allUsers", JSON.stringify(allUsers));
         initUserData(ADMIN_USERNAME);
-        saveBackupCode(ADMIN_USERNAME);
+        generateBackupCode(ADMIN_USERNAME);
     }
 }
 
@@ -1514,7 +1478,6 @@ function updateDailyPerformance(){
     document.getElementById("todayPerformance").innerText = today + "%";
 }
 
-// UPDATED PERFORMANCE SYSTEM - More realistic!
 function updateWeeklyPerformance(){
     let rand = Math.random() * 100;
     let weekly;
@@ -1616,8 +1579,8 @@ function handleAuth(){
         localStorage.setItem("wig_password", password);
         localStorage.setItem("wig_loggedIn", "true");
         initUserData(username);
-        saveBackupCode(username);
-        alert("Account Created Successfully! Your backup code is: " + getBackupCode(username) + " - Save this code to restore your account on any device!");
+        let backupCode = generateBackupCode(username);
+        alert("✅ Account Created Successfully!\n\n🔐 YOUR BACKUP CODE: " + backupCode + "\n\n⚠️ SAVE THIS CODE! ⚠️\nYou can use it to restore your account on ANY DEVICE with ALL your data.");
         updateHeaderButtons();
         showInvestorDashboard();
     }

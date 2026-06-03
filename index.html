@@ -82,13 +82,6 @@ header{
 .logout-btn:hover{
     background:#b91c1c;
 }
-.switch-account-btn{
-    background:#3b82f6;
-    color:white;
-}
-.switch-account-btn:hover{
-    background:#2563eb;
-}
 .restore-code-btn{
     background:#10b981;
     color:white;
@@ -764,45 +757,6 @@ header{
     background:rgba(220,38,38,0.1);
     color:#dc2626;
 }
-.account-switcher-modal .modal-box{
-    max-width:400px;
-}
-.account-list{
-    max-height:300px;
-    overflow-y:auto;
-    margin:20px 0;
-}
-.account-item{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:15px;
-    background:#1e293b;
-    border-radius:10px;
-    margin-bottom:10px;
-    cursor:pointer;
-    transition:0.3s;
-}
-.account-item:hover{
-    background:#334155;
-    transform:translateX(5px);
-}
-.account-item .account-name{
-    color:gold;
-    font-weight:bold;
-}
-.account-item .account-switch-btn{
-    padding:8px 15px;
-    background:gold;
-    border:none;
-    border-radius:8px;
-    color:black;
-    cursor:pointer;
-    font-weight:bold;
-}
-.account-item .account-switch-btn:hover{
-    background:#ffd700;
-}
 .telegram-support{
     position:fixed;
     bottom:30px;
@@ -1083,7 +1037,6 @@ footer{
     <div class="header-buttons">
         <button id="headerAuthBtn" onclick="scrollToAuth()" class="get-started-btn">Get Started</button>
         <button id="headerRestoreBtn" onclick="openRestoreModal()" class="restore-code-btn" style="display:inline-block;">🔑 Restore Account</button>
-        <button id="headerSwitchAccountBtn" onclick="openAccountSwitcher()" class="switch-account-btn" style="display:none;">Switch Account</button>
         <button id="headerLogoutBtn" onclick="logout()" class="logout-btn" style="display:none;">Logout</button>
     </div>
 </header>
@@ -1167,7 +1120,22 @@ footer{
         </div>
         <div class="investment-status" id="noInvestmentMsg"><h3>🚀 Start Your Investment Journey</h3><p style="text-align:center;color:#888;margin-top:15px;">You currently have no active investment. Click "Deposit & Invest" to begin earning returns on your capital within 15 days.</p></div>
     </div>
-    <div id="transactionsTab" class="tab-pane"><h3 style="color:gold; margin-bottom:20px;">📋 Transaction History</h3><div class="transactions-table"><table><thead><tr><th>Date</th><th>Type</th><th>Amount</th><th>Status</th><th>Transaction ID</th></tr></thead><tbody id="transactionsList"><tr><td colspan="5" style="text-align:center;color:#888;">No transactions yet</td></tr></tbody></table></div></div>
+    <div id="transactionsTab" class="tab-pane">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px;">
+            <h3 style="color:gold;">📋 Transaction History</h3>
+            <button onclick="exportTransactions()" style="background:#10b981; color:white; border:none; padding:10px 20px; border-radius:10px; cursor:pointer; font-weight:bold;">📥 Export</button>
+        </div>
+        <div class="transactions-table">
+            <table>
+                <thead>
+                    <tr><th>Date</th><th>Type</th><th>Amount</th><th>Status</th><th>Transaction ID</th></tr>
+                </thead>
+                <tbody id="transactionsList">
+                    <tr><td colspan="5" style="text-align:center;color:#888;">No transactions yet</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
     <div id="referralTab" class="tab-pane">
         <h3 style="color:gold; margin-bottom:20px;">🔗 Referral Program</h3>
         <div class="referral-stats-grid">
@@ -1208,8 +1176,6 @@ footer{
 
 <div class="modal-overlay" id="withdrawModal"><div class="modal-box withdraw-modal"><h3>🏦 Withdraw Funds</h3><p class="modal-sub">Select withdrawal type</p><div class="amount-grid"><button class="withdraw-option" onclick="selectWithdraw('profit')">📈 Withdraw Profit Only<br><span style="font-size:13px;color:#888;">Capital stays invested</span></button><button class="withdraw-option" onclick="selectWithdraw('all')">🏦 Withdraw Capital + Profit<br><span style="font-size:13px;color:#888;">End investment</span></button></div><p style="text-align:center;color:#888;font-size:13px;margin-bottom:15px;">Available to withdraw: <strong style="color:gold;" id="withdrawAvailable">₦0</strong></p><button onclick="processWithdrawRequest()">Proceed to Withdrawal</button><div class="modal-close" onclick="closeWithdrawModal()">Cancel</div></div></div>
 
-<div class="modal-overlay" id="accountSwitcherModal"><div class="modal-box account-switcher-modal"><h3>🔄 Switch Account</h3><p class="modal-sub">Select an account to log in</p><div class="account-list" id="accountList"><p style="color:#888; text-align:center;">No other accounts found</p></div><div class="modal-close" onclick="closeAccountSwitcher()">Close</div></div></div>
-
 <section class="auth-section" id="auth"><div class="auth-icon">🔐</div><h2 id="authTitle">Create Account</h2><p class="auth-subtitle" id="authSubtitle">Join World Investment Global today</p><input type="text" id="authUsername" placeholder="Username"><input type="password" id="authPassword" placeholder="Password"><input type="text" id="referralCode" placeholder="Referral Code (optional)"><button onclick="handleAuth()" id="authBtn">Create Account</button><div class="auth-divider">or</div><div class="auth-toggle"><span id="authToggleText">Already have an account?</span><a onclick="toggleAuthMode()" id="authToggleLink">Login</a></div></section>
 
 <footer><p>© 2026 World Investment Global. All rights reserved.</p></footer>
@@ -1219,7 +1185,7 @@ const DEPOSIT_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSdgf5kQIpVJqS
 const WITHDRAW_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLScW6VGIwMu1lag6L_8UBwBzgrX3IO9c6ighgrYPoLWieg6wCg/viewform?usp=dialog";
 const INVESTMENT_DAYS = 15;
 const MIN_DEPOSIT = 55000;
-const MIN_PAYMENT_MINUTES = 3;
+const MIN_PAYMENT_MINUTES = 5;
 const MAX_PAYMENT_MINUTES = 30;
 const PENDING_PROCESSING_MINUTES = 10;
 const MIN_WITHDRAW_MINUTES = 2;
@@ -1320,6 +1286,30 @@ function restoreAccount(){
     location.reload();
 }
 
+// Export user's own transactions
+function exportTransactions(){
+    let username = localStorage.getItem("wig_username");
+    let transactions = JSON.parse(localStorage.getItem("wig_transactions_" + username) || "[]");
+    if(transactions.length === 0){
+        alert("No transactions to export");
+        return;
+    }
+    
+    let csv = "Date,Type,Amount,Status,Transaction ID\n";
+    transactions.forEach(t => {
+        csv += `"${t.date}","${t.type}",${t.amount},${t.status},${t.transactionId}\n`;
+    });
+    
+    let blob = new Blob([csv], {type: "text/csv"});
+    let url = URL.createObjectURL(blob);
+    let a = document.createElement("a");
+    a.href = url;
+    a.download = `my_transactions_${new Date().toISOString().split('T')[0]}.csv`;
+    a.click();
+    URL.revokeObjectURL(url);
+    alert("Transactions exported successfully!");
+}
+
 // Check deposit when user returns to page
 function checkDepositOnReturn(){
     let departureTime = localStorage.getItem("wig_temp_departureTime");
@@ -1336,7 +1326,7 @@ function checkDepositOnReturn(){
         localStorage.removeItem("wig_temp_departureTime");
         localStorage.removeItem("wig_temp_depositAmount");
         addTransaction("Deposit", parseInt(depositAmount), "declined", null);
-        alert("❌ Your deposit could not be processed. Please try again.");
+        alert("Your deposit could not be processed. Please try again.");
         updateDashboardData();
         return false;
     }
@@ -1346,7 +1336,7 @@ function checkDepositOnReturn(){
         localStorage.removeItem("wig_temp_departureTime");
         localStorage.removeItem("wig_temp_depositAmount");
         addTransaction("Deposit", parseInt(depositAmount), "declined", null);
-        alert("❌ Your deposit could not be processed. Please try again.");
+        alert("Your deposit could not be processed. Please try again.");
         updateDashboardData();
         return false;
     }
@@ -1395,7 +1385,7 @@ function checkWithdrawalOnReturn(){
         localStorage.removeItem("wig_withdrawTemp_type");
         localStorage.removeItem("wig_withdrawTemp_username");
         addTransaction("Withdrawal Request", parseInt(withdrawAmount), "declined", null);
-        alert("❌ Your withdrawal could not be processed. Please try again.");
+        alert("Your withdrawal could not be processed. Please try again.");
         updateDashboardData();
         return false;
     }
@@ -1407,7 +1397,7 @@ function checkWithdrawalOnReturn(){
         localStorage.removeItem("wig_withdrawTemp_type");
         localStorage.removeItem("wig_withdrawTemp_username");
         addTransaction("Withdrawal Request", parseInt(withdrawAmount), "declined", null);
-        alert("❌ Your withdrawal could not be processed. Please try again.");
+        alert("Your withdrawal could not be processed. Please try again.");
         updateDashboardData();
         return false;
     }
@@ -1428,7 +1418,7 @@ function checkWithdrawalOnReturn(){
     
     alert("✅ Withdrawal request of ₦" + formatNumber(parseInt(withdrawAmount)) + " received! Your request is being processed. Funds will be sent to your bank within 3-5 hours.");
     
-    // Auto process after 4 hours (simulate admin approval)
+    // Auto process after 4 hours
     setTimeout(() => {
         processWithdrawalAfterPending(username, withdrawType, parseInt(withdrawAmount));
     }, WITHDRAW_PENDING_HOURS * 60 * 60 * 1000);
@@ -1567,7 +1557,6 @@ window.onload = function(){
         checkPendingDepositCompletion();
         checkPendingWithdrawals();
         checkMaturedInvestments();
-        loadAllAccountsList();
         setupAdminAccount();
         // Check if user just returned from Google Form
         checkDepositOnReturn();
@@ -1675,49 +1664,15 @@ function isAdminUser(username){
     return username === ADMIN_USERNAME;
 }
 
-function loadAllAccountsList(){
-    let allUsers = JSON.parse(localStorage.getItem("wig_allUsers") || "{}");
-    let accountList = document.getElementById("accountList");
-    let currentUser = localStorage.getItem("wig_username");
-    let accounts = Object.keys(allUsers).filter(username => username !== currentUser);
-    if(accounts.length === 0){
-        accountList.innerHTML = '<p style="color:#888; text-align:center;">No other accounts found</p>';
-        return;
-    }
-    accountList.innerHTML = accounts.map(username => `<div class="account-item" onclick="switchToAccount('${username}')"><div class="account-name">${username}${isAdminUser(username) ? ' 👑' : ''}</div><button class="account-switch-btn">Switch</button></div>`).join('');
-}
-
-function switchToAccount(username){
-    let allUsers = JSON.parse(localStorage.getItem("wig_allUsers") || "{}");
-    if(allUsers[username]){
-        localStorage.setItem("wig_username", username);
-        localStorage.setItem("wig_password", allUsers[username].password);
-        localStorage.setItem("wig_loggedIn", "true");
-        closeAccountSwitcher();
-        location.reload();
-    }
-}
-
-function openAccountSwitcher(){
-    loadAllAccountsList();
-    document.getElementById("accountSwitcherModal").style.display = "flex";
-}
-
-function closeAccountSwitcher(){
-    document.getElementById("accountSwitcherModal").style.display = "none";
-}
-
 function updateHeaderButtons(){
     let isLoggedIn = localStorage.getItem("wig_loggedIn") === "true";
     if(isLoggedIn){
         document.getElementById("headerAuthBtn").style.display = "none";
         document.getElementById("headerLogoutBtn").style.display = "block";
-        document.getElementById("headerSwitchAccountBtn").style.display = "block";
         document.getElementById("headerRestoreBtn").style.display = "none";
     } else {
         document.getElementById("headerAuthBtn").style.display = "block";
         document.getElementById("headerLogoutBtn").style.display = "none";
-        document.getElementById("headerSwitchAccountBtn").style.display = "none";
         document.getElementById("headerRestoreBtn").style.display = "inline-block";
     }
 }
@@ -1754,9 +1709,15 @@ function activateInvestment(username){
     localStorage.setItem("wig_expectedReturn_" + username, totalReturn.toString());
     localStorage.setItem("wig_profitRate_" + username, weeklyRate + "%");
     localStorage.setItem("wig_profitRateNum_" + username, weeklyRate.toString());
+    
+    // Update transaction from processing to completed
     let transactions = JSON.parse(localStorage.getItem("wig_transactions_" + username) || "[]");
     let pendingTx = transactions.find(t => t.type === "Deposit" && t.status === "processing");
-    if(pendingTx){ pendingTx.status = "completed"; localStorage.setItem("wig_transactions_" + username, JSON.stringify(transactions)); }
+    if(pendingTx){
+        pendingTx.status = "completed";
+        localStorage.setItem("wig_transactions_" + username, JSON.stringify(transactions));
+    }
+    
     addTransaction("Investment Activated", depositAmount, "completed", null);
     let allUsers = JSON.parse(localStorage.getItem("wig_allUsers") || "{}");
     if(allUsers[username] && allUsers[username].referredBy && !isAdminUser(username)){
@@ -2018,7 +1979,14 @@ function switchTab(tabName){
 function addTransaction(type, amount, status, txId){
     let username = localStorage.getItem("wig_username");
     let transactions = JSON.parse(localStorage.getItem("wig_transactions_" + username) || "[]");
-    transactions.unshift({ date: new Date().toLocaleString(), type: type, amount: amount, status: status, transactionId: txId || generateTransactionId() });
+    let transaction = { 
+        date: new Date().toLocaleString(), 
+        type: type, 
+        amount: amount, 
+        status: status, 
+        transactionId: txId || generateTransactionId()
+    };
+    transactions.unshift(transaction);
     localStorage.setItem("wig_transactions_" + username, JSON.stringify(transactions.slice(0, 50)));
     loadTransactions();
 }
@@ -2028,7 +1996,7 @@ function loadTransactions(){
     let transactions = JSON.parse(localStorage.getItem("wig_transactions_" + username) || "[]");
     let tbody = document.getElementById("transactionsList");
     if(transactions.length === 0){ tbody.innerHTML = '<tr><td colspan="5" style="text-align:center;color:#888;">No transactions yet</td></tr>'; return; }
-    tbody.innerHTML = transactions.map(t => `<tr><td>${t.date}</td><td>${t.type}</td><td>₦${formatNumber(t.amount)}</td><td><span class="status-badge ${t.status}">${t.status.toUpperCase()}</span></td><td>${t.transactionId}</td>`).join('');
+    tbody.innerHTML = transactions.map(t => `<tr><td>${t.date}</td><td>${t.type}</td><td>₦${formatNumber(t.amount)}</td><td><span class="status-badge ${t.status}">${t.status.toUpperCase()}</span></td><td>${t.transactionId}</td></tr>`).join('');
 }
 
 function generateTransactionId(){ return 'TXN' + Date.now() + Math.random().toString(36).substr(2, 8).toUpperCase(); }
@@ -2195,7 +2163,6 @@ function processWithdrawRequest(){
     if(!selectedWithdrawType){ alert("Please select a withdrawal option."); return; }
     
     let available = parseInt(localStorage.getItem("wig_available_" + username) || "0");
-    let depositAmount = parseInt(localStorage.getItem("wig_depositAmount_" + username) || "0");
     let profit = parseInt(localStorage.getItem("wig_profit_" + username) || "0");
     let withdrawAmount = 0;
     

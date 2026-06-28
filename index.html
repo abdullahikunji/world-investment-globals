@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
     <!-- ============================================================
-    SUPABASE CONNECTION - FIXED (No duplicate declaration)
+    SUPABASE CONNECTION - CORRECTED (Only ONE declaration)
     ============================================================ -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script>
@@ -18,7 +18,7 @@
         const SUPABASE_PUBLISHABLE_KEY = 'sb_publishable_8h8It5mzTa3bAmXGsJC65Q_O4UvOx51';
         // ===================================
 
-        // This creates the supabase client ONCE
+        // This creates the supabase client ONCE — no duplicate!
         const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY);
 
         console.log('✅ Supabase connected with Publishable Key!');

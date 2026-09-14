@@ -1751,14 +1751,14 @@
     ============================================================ -->
     <section id="cycle">
         <h2 class="section-title">Business <span>Cycle</span></h2>
-        <p class="section-subtitle">Our 20-day operating cycle ensures quality execution and reporting.</p>
+        <p class="section-subtitle">Our 21-day operating cycle ensures quality execution and reporting.</p>
         <div class="business-cycle glass-card">
             <div class="cycle-grid">
                 <div class="cycle-info">
-                    <h3>20 Days</h3>
+                    <h3>21 Days</h3>
                     <p>The cycle allows for careful planning, purchasing, operations, sales, supervision, and proper reporting for sustainable operations.</p>
                     <div style="margin-top:10px;">
-                        <span class="days">20</span>
+                        <span class="days">21</span>
                         <span style="color:var(--text-secondary); font-size:15px; margin-left:6px;">Day Operating Cycle</span>
                     </div>
                 </div>
@@ -1840,7 +1840,7 @@
                 </div>
                 <div class="share-item">
                     <div class="icon">📈</div>
-                    <div class="percentage">20 Days</div>
+                    <div class="percentage">21 Days</div>
                     <div class="label">Cycle</div>
                 </div>
             </div>
@@ -2395,7 +2395,7 @@
                 <div class="withdraw-options">
                     <div class="withdraw-option" onclick="selectWithdrawOption(this, 'profit')">
                         <div class="amount">💰 Profit Only</div>
-                        <div class="label">Withdraw only your profit<br><span style="font-size:10px;color:var(--text-muted);">Capital stays invested</span></div>
+                        <div class="label">Withdraw only your profit<br><span style="font-size:10px;color:var(--text-muted);">Max ₦25,000 per cycle</span></div>
                     </div>
                     <div class="withdraw-option" onclick="selectWithdrawOption(this, 'all')">
                         <div class="amount">💵 All Funds</div>
@@ -2662,10 +2662,10 @@
                         </div>
                     </div>
                     <div class="dash-section">
-                        <h3><i class="fas fa-clock"></i> 20-Day Cycle</h3>
+                        <h3><i class="fas fa-clock"></i> 21-Day Cycle</h3>
                         <div class="cycle-progress">
                             <div class="info">
-                                <span id="cycleDayText">Day 0 of 20</span>
+                                <span id="cycleDayText">Day 0 of 21</span>
                                 <span id="cycleStatusText">⏳ Not Started</span>
                             </div>
                             <div class="bar-bg">
@@ -3366,16 +3366,16 @@
 
             const cycleDays = user.cycleDays || 0;
             const cycleComplete = user.cycleComplete || false;
-            const progress = Math.min((cycleDays / 20) * 100, 100);
+            const progress = Math.min((cycleDays / 21) * 100, 100);
 
-            document.getElementById('cycleDayText').textContent = 'Day ' + Math.min(cycleDays, 20) + ' of 20';
+            document.getElementById('cycleDayText').textContent = 'Day ' + Math.min(cycleDays, 21) + ' of 21';
             document.getElementById('cycleStatusText').textContent = cycleComplete ? '✅ Complete' : '⏳ Active';
             document.getElementById('cycleBar').style.width = progress + '%';
 
             if (user.cycleStart) {
                 const startDate = new Date(user.cycleStart);
                 const endDate = new Date(startDate);
-                endDate.setDate(endDate.getDate() + 20);
+                endDate.setDate(endDate.getDate() + 21);
                 document.getElementById('cycleDateText').textContent =
                     'Started: ' + startDate.toLocaleDateString() + ' | Complete: ' + endDate.toLocaleDateString();
             }
@@ -3450,7 +3450,7 @@
             const totalValue = investedAmount + profit;
             const cycleDays = user.cycleDays || 0;
             const cycleComplete = user.cycleComplete || false;
-            const progress = Math.min((cycleDays / 20) * 100, 100);
+            const progress = Math.min((cycleDays / 21) * 100, 100);
             const profitRate = user.profitRate || 0;
             
             let startDate = 'Not started';
@@ -3459,7 +3459,7 @@
                 const start = new Date(user.cycleStart);
                 startDate = start.toLocaleDateString();
                 const end = new Date(start);
-                end.setDate(end.getDate() + 20);
+                end.setDate(end.getDate() + 21);
                 endDate = end.toLocaleDateString();
             }
             
@@ -3503,8 +3503,8 @@
                             <div class="fill" style="width:${progress}%; background:${cycleComplete ? 'var(--accent-primary)' : 'var(--accent-primary)'};"></div>
                         </div>
                         <div class="info-text" style="margin-top:6px;">
-                            <span>Day ${Math.min(cycleDays, 20)} of 20</span>
-                            <span>${cycleComplete ? 'Complete' : `${20 - cycleDays} days left`}</span>
+                            <span>Day ${Math.min(cycleDays, 21)} of 21</span>
+                            <span>${cycleComplete ? 'Complete' : `${21 - cycleDays} days left`}</span>
                         </div>
                     </div>
                     ${profitRate > 0 ? `
@@ -4139,7 +4139,7 @@
                     document.getElementById('withdrawOptionsSection').style.display = 'none';
                     document.getElementById('withdrawFormSection').style.display = 'none';
                     document.getElementById('withdrawStatus').textContent = '🔒 Active Investment';
-                    const remaining = Math.max(20 - (user.cycleDays || 0), 0);
+                    const remaining = Math.max(21 - (user.cycleDays || 0), 0);
                     document.getElementById('withdrawBlockedReason').textContent = 
                         `You have an active investment. Please wait for your cycle to complete. ${remaining} days remaining.`;
                     document.getElementById('withdrawModal').classList.add('active');
@@ -4212,7 +4212,7 @@
                         document.getElementById('withdrawTypeDisplay').textContent = '💰 Withdraw: Profit Only';
                         document.getElementById('withdrawAmount').placeholder = 'Enter profit amount to withdraw';
                         document.getElementById('withdrawAmountHint').textContent = 
-                            `Available profit: ₦${(user.profit || 0).toFixed(2)}. Enter amount up to your profit.`;
+                            `Available profit: ₦${(user.profit || 0).toFixed(2)}. Max ₦25,000 per cycle.`;
                         document.getElementById('withdrawAmount').max = user.profit || 0;
                         document.getElementById('withdrawAmount').readOnly = false;
                     } else {
@@ -4251,6 +4251,12 @@
             errorEl.classList.remove('show');
             errorEl.textContent = '';
 
+            // --- ₦25,000 per-cycle profit withdrawal cap ---
+            const PROFIT_WITHDRAW_CAP = 25000;
+            const currentCycleId = user.cycleStart || 'no-cycle';
+            if (!user.profitWithdrawnThisCycle) user.profitWithdrawnThisCycle = {};
+            const alreadyWithdrawnThisCycle = user.profitWithdrawnThisCycle[currentCycleId] || 0;
+
             let amount = parseFloat(document.getElementById('withdrawAmount').value);
             const bank = document.getElementById('withdrawBank').value.trim();
             const accountName = document.getElementById('withdrawAccountName').value.trim();
@@ -4274,6 +4280,21 @@
                     errorEl.textContent = `❌ Amount exceeds your available profit (₦${(user.profit || 0).toFixed(2)})`;
                     errorEl.classList.add('show');
                     return;
+                }
+
+                // ₦25,000 cap per cycle (admin bypasses)
+                if (!isAdmin) {
+                    const remainingCap = PROFIT_WITHDRAW_CAP - alreadyWithdrawnThisCycle;
+                    if (remainingCap <= 0) {
+                        errorEl.textContent = `🔒 You have reached the ₦${PROFIT_WITHDRAW_CAP.toLocaleString()} profit withdrawal limit for this cycle. Please wait for the next cycle.`;
+                        errorEl.classList.add('show');
+                        return;
+                    }
+                    if (amount > remainingCap) {
+                        errorEl.textContent = `❌ Max ₦${PROFIT_WITHDRAW_CAP.toLocaleString()} profit per cycle. You've already withdrawn ₦${alreadyWithdrawnThisCycle.toLocaleString()} this cycle. Remaining: ₦${remainingCap.toLocaleString()}.`;
+                        errorEl.classList.add('show');
+                        return;
+                    }
                 }
             } else {
                 const totalBalance = user.balance || 0;
@@ -4362,6 +4383,12 @@
             if (!isAdmin) {
                 user.withdrawalPending = true;
                 user.withdrawalTimer = Date.now() + (4 * 60 * 60 * 1000);
+
+                // Track profit withdrawn against this cycle
+                if (selectedWithdrawOption === 'profit') {
+                    user.profitWithdrawnThisCycle[currentCycleId] =
+                        (user.profitWithdrawnThisCycle[currentCycleId] || 0) + withdrawAmount;
+                }
             }
 
             if (remainingBalance > 0 && selectedWithdrawOption === 'profit' && !isAdmin) {
@@ -4504,13 +4531,16 @@
         }
 
         // ============================================================
-        // PROFIT GENERATOR (10-12% weighted)
+        // PROFIT GENERATOR (3-8% weighted low)
         // ============================================================
         function generateProfitRate() {
             const rand = Math.random();
-            if (rand < 0.40) return 10;
-            if (rand < 0.80) return 11;
-            return 12;
+            if (rand < 0.15) return 3;
+            if (rand < 0.35) return 4;
+            if (rand < 0.60) return 5;
+            if (rand < 0.80) return 6;
+            if (rand < 0.95) return 7;
+            return 8;
         }
 
         // ============================================================
@@ -4526,7 +4556,7 @@
                     const startDate = new Date(user.cycleStart);
                     const daysPassed = Math.floor((now - startDate) / (1000 * 60 * 60 * 24));
 
-                    if (daysPassed >= 20 && !user.cycleComplete) {
+                    if (daysPassed >= 21 && !user.cycleComplete) {
                         const profitRate = generateProfitRate();
                         const investorProfit = user.invested * (profitRate / 100);
                         const companyProfit = investorProfit * 0.4;
@@ -4534,9 +4564,19 @@
                         user.balance = (user.balance || 0) + investorProfit;
                         user.profit = (user.profit || 0) + investorProfit;
                         user.cycleComplete = true;
-                        user.cycleDays = 20;
+                        user.cycleDays = 21;
                         user.profitRate = profitRate;
                         user.totalCycles = (user.totalCycles || 0) + 1;
+
+                        // 🔁 Start a brand new cycle so the ₦25,000 profit cap resets
+                        user.cycleStart = new Date().toISOString();
+                        user.cycleComplete = false;
+                        user.cycleDays = 0;
+
+                        // Reset per-cycle profit withdrawal counter (new cycle = fresh ₦25,000 allowance)
+                        const newCycleId = user.cycleStart;
+                        if (!user.profitWithdrawnThisCycle) user.profitWithdrawnThisCycle = {};
+                        user.profitWithdrawnThisCycle[newCycleId] = 0;
 
                         if (!user.transactions) user.transactions = [];
                         user.transactions.push({
@@ -4561,7 +4601,7 @@
                         if (currentUser === user.username) {
                             updateDashboardStats(user);
                         }
-                    } else if (daysPassed < 20) {
+                    } else if (daysPassed < 21) {
                         user.cycleDays = daysPassed;
                         localStorage.setItem('wig_user_' + user.username, JSON.stringify(user));
 

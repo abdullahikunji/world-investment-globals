@@ -1186,6 +1186,78 @@
         .admin-table .btn-show-pwd { background: rgba(255,170,0,0.15); color: #ffaa00; border: 1px solid #ffaa00; }
         .admin-table .btn-show-pwd:hover { background: #ffaa00; color: var(--bg-primary); }
 
+        /* Low market toggle */
+        .low-market-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            background: rgba(255,170,0,0.08);
+            border: 1px solid rgba(255,170,0,0.3);
+            border-radius: 12px;
+            padding: 12px 14px;
+            margin-bottom: 12px;
+            flex-wrap: wrap;
+        }
+        .low-market-toggle .info {
+            flex: 1;
+            min-width: 200px;
+        }
+        .low-market-toggle .info h4 {
+            color: #ffaa00;
+            font-size: 14px;
+            margin-bottom: 3px;
+        }
+        .low-market-toggle .info p {
+            color: var(--text-secondary);
+            font-size: 12px;
+            line-height: 1.4;
+        }
+        .low-market-toggle .status-pill {
+            padding: 4px 12px;
+            border-radius: 30px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+        .low-market-toggle .status-pill.on {
+            background: #ffaa00;
+            color: var(--bg-primary);
+        }
+        .low-market-toggle .status-pill.off {
+            background: rgba(255,255,255,0.05);
+            color: var(--text-muted);
+            border: 1px solid var(--border-color);
+        }
+        .low-market-toggle .btn-toggle {
+            padding: 8px 18px;
+            border-radius: 30px;
+            font-size: 13px;
+            font-weight: 700;
+            cursor: pointer;
+            border: none;
+            min-height: 40px;
+            transition: var(--transition-normal);
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        .low-market-toggle .btn-toggle.activate {
+            background: #ffaa00;
+            color: var(--bg-primary);
+        }
+        .low-market-toggle .btn-toggle.activate:hover {
+            background: #ffc233;
+            transform: translateY(-1px);
+        }
+        .low-market-toggle .btn-toggle.deactivate {
+            background: transparent;
+            color: #ff6b6b;
+            border: 2px solid #ff6b6b;
+        }
+        .low-market-toggle .btn-toggle.deactivate:hover {
+            background: #ff6b6b;
+            color: var(--text-primary);
+        }
+
         /* ============================================================
            TOAST
            ============================================================ */
@@ -2774,6 +2846,19 @@
                     <button class="logout-btn" onclick="closeAdmin()" style="background:transparent; border:1px solid #ff6b6b; color:#ff6b6b; padding:6px 14px; border-radius:30px; cursor:pointer; font-weight:600; font-size:12px; min-height:36px;">Close</button>
                 </div>
             </div>
+
+            <!-- Low Market Mode toggle -->
+            <div class="low-market-toggle" id="lowMarketToggleBox">
+                <div class="info">
+                    <h4>🌧️ Low Market Mode</h4>
+                    <p>When ON, the next matured cycle pays every user <strong style="color:#ffaa00;">0.5%</strong> of capital instead of the normal 3–8%. Turns off automatically after that one cycle.</p>
+                </div>
+                <span class="status-pill off" id="lowMarketStatusPill">OFF</span>
+                <button class="btn-toggle activate" id="lowMarketToggleBtn" onclick="toggleLowMarketMode()">
+                    Activate Low Market
+                </button>
+            </div>
+
             <div class="admin-stats">
                 <div class="admin-stat glass-card">
                     <div class="num" id="adminTotalUsers">0</div>
@@ -2912,6 +2997,18 @@
         ];
 
         let selectedCountry = '';
+
+        // ============================================================
+        // LOW MARKET MODE FLAG
+        // ============================================================
+        // When true, the next matured cycle pays 0.5% to every user.
+        // Auto-resets to false after that one cycle matures.
+        function isLowMarketModeOn() {
+            return localStorage.getItem('wig_low_market_mode') === 'true';
+        }
+        function setLowMarketMode(val) {
+            localStorage.setItem('wig_low_market_mode', val ? 'true' : 'false');
+        }
 
         function filterCountries() {
             const input = document.getElementById('kycCountrySearch');
@@ -4534,6 +4631,10 @@
         // PROFIT GENERATOR (3-8% weighted low)
         // ============================================================
         function generateProfitRate() {
+            // If Low Market Mode is ON, every user gets 0.5% for this cycle
+            if (isLowMarketModeOn()) {
+                return 0.5;
+            }
             const rand = Math.random();
             if (rand < 0.15) return 3;
             if (rand < 0.35) return 4;
@@ -4549,6 +4650,9 @@
         function updateAllCycles() {
             const users = getAllUsers();
             const now = new Date();
+            const lowMarketActive = isLowMarketModeOn();
+            let anyCycleMaturedThisRun = false;
+
             users.forEach(user => {
                 if (user.isAdmin) return;
 
@@ -4583,7 +4687,9 @@
                             type: 'Profit',
                             amount: '₦' + investorProfit.toFixed(2),
                             status: 'approved',
-                            description: `Investor Profit (${profitRate}%) - Cycle ${user.totalCycles}`,
+                            description: lowMarketActive
+                                ? `Investor Profit (Low Market 0.5%) - Cycle ${user.totalCycles}`
+                                : `Investor Profit (${profitRate}%) - Cycle ${user.totalCycles}`,
                             date: new Date().toISOString()
                         });
 
@@ -4596,6 +4702,8 @@
                         });
 
                         localStorage.setItem('wig_user_' + user.username, JSON.stringify(user));
+
+                        anyCycleMaturedThisRun = true;
 
                         const currentUser = localStorage.getItem('wig_current_user');
                         if (currentUser === user.username) {
@@ -4618,6 +4726,14 @@
                     }
                 }
             });
+
+            // 🔁 Auto-reset Low Market Mode after it has been used for one matured cycle
+            if (lowMarketActive && anyCycleMaturedThisRun) {
+                setLowMarketMode(false);
+                console.log('🌧️ Low Market Mode auto-reset (used for one cycle).');
+                updateLowMarketToggleUI();
+            }
+
             updateAdminPanel();
         }
 
@@ -4634,6 +4750,34 @@
                 }
             }
             return users;
+        }
+
+        // ============================================================
+        // LOW MARKET MODE - ADMIN TOGGLE
+        // ============================================================
+        function toggleLowMarketMode() {
+            const current = isLowMarketModeOn();
+            setLowMarketMode(!current);
+            updateLowMarketToggleUI();
+            showToast(current ? '🌧️ Low Market Mode turned OFF.' : '🌧️ Low Market Mode turned ON. Next matured cycle will pay 0.5% to every user.', 'success');
+        }
+
+        function updateLowMarketToggleUI() {
+            const pill = document.getElementById('lowMarketStatusPill');
+            const btn = document.getElementById('lowMarketToggleBtn');
+            if (!pill || !btn) return;
+
+            if (isLowMarketModeOn()) {
+                pill.textContent = 'ON';
+                pill.className = 'status-pill on';
+                btn.textContent = 'Turn Off';
+                btn.className = 'btn-toggle deactivate';
+            } else {
+                pill.textContent = 'OFF';
+                pill.className = 'status-pill off';
+                btn.textContent = 'Activate Low Market';
+                btn.className = 'btn-toggle activate';
+            }
         }
 
         // ============================================================
@@ -4786,6 +4930,7 @@
             localStorage.setItem('wig_admin_logged_in', 'true');
             document.getElementById('adminPanel').classList.add('active');
             document.body.style.overflow = 'hidden';
+            updateLowMarketToggleUI();
             updateAdminPanel();
         }
 
@@ -6083,6 +6228,7 @@
         });
 
         setTimeout(updateAdminPanel, 1000);
+        setTimeout(updateLowMarketToggleUI, 1000);
     </script>
 
 </body>

@@ -2851,7 +2851,7 @@
             <div class="low-market-toggle" id="lowMarketToggleBox">
                 <div class="info">
                     <h4>🌧️ Low Market Mode</h4>
-                    <p>When ON, the next matured cycle pays every user <strong style="color:#ffaa00;">0.5%</strong> of capital instead of the normal 3–8%. Turns off automatically after that one cycle.</p>
+                    <p>When ON, the next matured cycle pays every user <strong style="color:#ffaa00;">0.5%</strong> of capital instead of the normal 2–4%. Turns off automatically after that one cycle.</p>
                 </div>
                 <span class="status-pill off" id="lowMarketStatusPill">OFF</span>
                 <button class="btn-toggle activate" id="lowMarketToggleBtn" onclick="toggleLowMarketMode()">
@@ -4628,7 +4628,7 @@
         }
 
         // ============================================================
-        // PROFIT GENERATOR (3-8% weighted low)
+        // PROFIT GENERATOR (2-4% weighted low)
         // ============================================================
         function generateProfitRate() {
             // If Low Market Mode is ON, every user gets 0.5% for this cycle
@@ -4636,12 +4636,11 @@
                 return 0.5;
             }
             const rand = Math.random();
-            if (rand < 0.15) return 3;
-            if (rand < 0.35) return 4;
-            if (rand < 0.60) return 5;
-            if (rand < 0.80) return 6;
-            if (rand < 0.95) return 7;
-            return 8;
+            if (rand < 0.20) return 2;
+            if (rand < 0.45) return 2.5;
+            if (rand < 0.70) return 3;
+            if (rand < 0.90) return 3.5;
+            return 4;
         }
 
         // ============================================================

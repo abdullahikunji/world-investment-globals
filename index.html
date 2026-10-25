@@ -1823,14 +1823,14 @@
     ============================================================ -->
     <section id="cycle">
         <h2 class="section-title">Business <span>Cycle</span></h2>
-        <p class="section-subtitle">Our 21-day operating cycle ensures quality execution and reporting.</p>
+        <p class="section-subtitle">Our 30-day operating cycle ensures quality execution and reporting.</p>
         <div class="business-cycle glass-card">
             <div class="cycle-grid">
                 <div class="cycle-info">
-                    <h3>21 Days</h3>
+                    <h3>30 Days</h3>
                     <p>The cycle allows for careful planning, purchasing, operations, sales, supervision, and proper reporting for sustainable operations.</p>
                     <div style="margin-top:10px;">
-                        <span class="days">21</span>
+                        <span class="days">30</span>
                         <span style="color:var(--text-secondary); font-size:15px; margin-left:6px;">Day Operating Cycle</span>
                     </div>
                 </div>
@@ -1912,7 +1912,7 @@
                 </div>
                 <div class="share-item">
                     <div class="icon">📈</div>
-                    <div class="percentage">21 Days</div>
+                    <div class="percentage">30 Days</div>
                     <div class="label">Cycle</div>
                 </div>
             </div>
@@ -2734,10 +2734,10 @@
                         </div>
                     </div>
                     <div class="dash-section">
-                        <h3><i class="fas fa-clock"></i> 21-Day Cycle</h3>
+                        <h3><i class="fas fa-clock"></i> 30-Day Cycle</h3>
                         <div class="cycle-progress">
                             <div class="info">
-                                <span id="cycleDayText">Day 0 of 21</span>
+                                <span id="cycleDayText">Day 0 of 30</span>
                                 <span id="cycleStatusText">⏳ Not Started</span>
                             </div>
                             <div class="bar-bg">
@@ -3463,16 +3463,16 @@
 
             const cycleDays = user.cycleDays || 0;
             const cycleComplete = user.cycleComplete || false;
-            const progress = Math.min((cycleDays / 21) * 100, 100);
+            const progress = Math.min((cycleDays / 30) * 100, 100);
 
-            document.getElementById('cycleDayText').textContent = 'Day ' + Math.min(cycleDays, 21) + ' of 21';
+            document.getElementById('cycleDayText').textContent = 'Day ' + Math.min(cycleDays, 30) + ' of 30';
             document.getElementById('cycleStatusText').textContent = cycleComplete ? '✅ Complete' : '⏳ Active';
             document.getElementById('cycleBar').style.width = progress + '%';
 
             if (user.cycleStart) {
                 const startDate = new Date(user.cycleStart);
                 const endDate = new Date(startDate);
-                endDate.setDate(endDate.getDate() + 21);
+                endDate.setDate(endDate.getDate() + 30);
                 document.getElementById('cycleDateText').textContent =
                     'Started: ' + startDate.toLocaleDateString() + ' | Complete: ' + endDate.toLocaleDateString();
             }
@@ -3547,7 +3547,7 @@
             const totalValue = investedAmount + profit;
             const cycleDays = user.cycleDays || 0;
             const cycleComplete = user.cycleComplete || false;
-            const progress = Math.min((cycleDays / 21) * 100, 100);
+            const progress = Math.min((cycleDays / 30) * 100, 100);
             const profitRate = user.profitRate || 0;
             
             let startDate = 'Not started';
@@ -3556,7 +3556,7 @@
                 const start = new Date(user.cycleStart);
                 startDate = start.toLocaleDateString();
                 const end = new Date(start);
-                end.setDate(end.getDate() + 21);
+                end.setDate(end.getDate() + 30);
                 endDate = end.toLocaleDateString();
             }
             
@@ -3600,8 +3600,8 @@
                             <div class="fill" style="width:${progress}%; background:${cycleComplete ? 'var(--accent-primary)' : 'var(--accent-primary)'};"></div>
                         </div>
                         <div class="info-text" style="margin-top:6px;">
-                            <span>Day ${Math.min(cycleDays, 21)} of 21</span>
-                            <span>${cycleComplete ? 'Complete' : `${21 - cycleDays} days left`}</span>
+                            <span>Day ${Math.min(cycleDays, 30)} of 30</span>
+                            <span>${cycleComplete ? 'Complete' : `${30 - cycleDays} days left`}</span>
                         </div>
                     </div>
                     ${profitRate > 0 ? `
@@ -4236,7 +4236,7 @@
                     document.getElementById('withdrawOptionsSection').style.display = 'none';
                     document.getElementById('withdrawFormSection').style.display = 'none';
                     document.getElementById('withdrawStatus').textContent = '🔒 Active Investment';
-                    const remaining = Math.max(21 - (user.cycleDays || 0), 0);
+                    const remaining = Math.max(30 - (user.cycleDays || 0), 0);
                     document.getElementById('withdrawBlockedReason').textContent = 
                         `You have an active investment. Please wait for your cycle to complete. ${remaining} days remaining.`;
                     document.getElementById('withdrawModal').classList.add('active');
@@ -4659,7 +4659,7 @@
                     const startDate = new Date(user.cycleStart);
                     const daysPassed = Math.floor((now - startDate) / (1000 * 60 * 60 * 24));
 
-                    if (daysPassed >= 21 && !user.cycleComplete) {
+                    if (daysPassed >= 30 && !user.cycleComplete) {
                         const profitRate = generateProfitRate();
                         const investorProfit = user.invested * (profitRate / 100);
                         const companyProfit = investorProfit * 0.4;
@@ -4667,7 +4667,7 @@
                         user.balance = (user.balance || 0) + investorProfit;
                         user.profit = (user.profit || 0) + investorProfit;
                         user.cycleComplete = true;
-                        user.cycleDays = 21;
+                        user.cycleDays = 30;
                         user.profitRate = profitRate;
                         user.totalCycles = (user.totalCycles || 0) + 1;
 
@@ -4708,7 +4708,7 @@
                         if (currentUser === user.username) {
                             updateDashboardStats(user);
                         }
-                    } else if (daysPassed < 21) {
+                    } else if (daysPassed < 30) {
                         user.cycleDays = daysPassed;
                         localStorage.setItem('wig_user_' + user.username, JSON.stringify(user));
 
